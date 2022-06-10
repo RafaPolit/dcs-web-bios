@@ -17,5 +17,6 @@ export default function handler(
       console.log("err:", err);
     }
     res.status(200).json({ bytes });
+    client.close();
   });
 }
