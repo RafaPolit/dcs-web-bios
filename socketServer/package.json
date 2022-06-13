@@ -2,8 +2,6 @@
   "name": "dcs-web-bios-socket-server",
   "version": "0.1.0",
   "description": "Socket server to send data to the dcs-web-bios-client",
-  "main": "scripts/index.ts",
-  "type": "module",
   "license": "MIT",
   "dependencies": {
     "socket.io": "^4.5.1"

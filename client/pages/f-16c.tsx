@@ -1,19 +1,17 @@
 import { useState } from "react";
+import { GiCog } from "react-icons/gi";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { udp } from "../scripts/udp";
-import { GiCog } from "react-icons/gi";
+
+import { F16cICP } from "../components/f-16c/icp";
 
 const tabClass =
   "inline-block font-semibold px-6 py-3 rounded-t-lg hover:text-neutral-600 hover:bg-neutral-50 dark:hover:bg-neutral-800 dark:hover:text-neutral-300";
 const tabClassCurrent =
   "inline-block font-semibold px-6 py-3 bg-neutral-600 rounded-t-lg active";
 
-const roundedButton =
-  "absolute top-[19px] w-[56px] h-[56px] rounded-full bg-red-800 opacity-75";
-const squareButton = "absolute w-[56px] h-[56px] bg-red-800 opacity-75";
-const directionalButton = "absolute w-[40px] h-[43px] bg-red-800 opacity-75";
 const mdfSelect =
   "px-4 py-2 bg-neutral-500 rounded-lg outline outline-offset-4 outline-1 bg-red-800 opacity-75";
 const mfdButton = "absolute w-[36px] h-[36px] bg-red-800 opacity-75";
@@ -92,135 +90,7 @@ const Home: NextPage = () => {
             </div>
           </div>
         )}
-        {pane === "icp" && (
-          <div className="flex place-content-center space-x-2 items-start">
-            <div className="relative w-[551px] h-[412px] min-w-[551px] -ml-[36px]">
-              <Image
-                src="/f-16c/f-16c-icp.png"
-                alt="F-16C Viper - ICP"
-                layout="fill"
-                className="rounded-lg"
-              />
-              <button
-                className={`${roundedButton} left-[55px]`}
-                onClick={() => udp("Toggle", "ICP_COM1_BTN")}
-              />
-              <button
-                className={`${roundedButton} left-[133px]`}
-                onClick={() => udp("Toggle", "ICP_COM2_BTN")}
-              />
-              <button
-                className={`${roundedButton} left-[211px]`}
-                onClick={() => udp("Toggle", "ICP_IFF_BTN")}
-              />
-              <button
-                className={`${roundedButton} left-[289px]`}
-                onClick={() => udp("Toggle", "ICP_LIST_BTN")}
-              />
-              <button
-                className={`${roundedButton} left-[366px]`}
-                onClick={() => udp("Toggle", "ICP_AA_MODE_BTN")}
-              />
-              <button
-                className={`${roundedButton} left-[443px]`}
-                onClick={() => udp("Toggle", "ICP_AG_MODE_BTN")}
-              />
-              {}
-              <button
-                className={`${squareButton} top-[94px] left-[77px]`}
-                onClick={() => udp("Toggle", "ICP_BTN_1")}
-              />
-              <button
-                className={`${squareButton} top-[94px] left-[152px]`}
-                onClick={() => udp("Toggle", "ICP_BTN_2")}
-              />
-              <button
-                className={`${squareButton} top-[94px] left-[226px]`}
-                onClick={() => udp("Toggle", "ICP_BTN_3")}
-              />
-              <button
-                className={`${squareButton} top-[169px] left-[77px]`}
-                onClick={() => udp("Toggle", "ICP_BTN_4")}
-              />
-              <button
-                className={`${squareButton} top-[169px] left-[152px]`}
-                onClick={() => udp("Toggle", "ICP_BTN_5")}
-              />
-              <button
-                className={`${squareButton} top-[169px] left-[226px]`}
-                onClick={() => udp("Toggle", "ICP_BTN_6")}
-              />
-              <button
-                className={`${squareButton} top-[242px] left-[77px]`}
-                onClick={() => udp("Toggle", "ICP_BTN_7")}
-              />
-              <button
-                className={`${squareButton} top-[242px] left-[152px]`}
-                onClick={() => udp("Toggle", "ICP_BTN_8")}
-              />
-              <button
-                className={`${squareButton} top-[242px] left-[226px]`}
-                onClick={() => udp("Toggle", "ICP_BTN_9")}
-              />
-              <button
-                className={`${squareButton} top-[242px] left-[296px]`}
-                onClick={() => udp("Toggle", "ICP_BTN_0")}
-              />
-              {}
-              <button
-                className={`${squareButton} top-[94px] left-[320px]`}
-                onClick={() => udp("Toggle", "ICP_RCL_BTN")}
-              />
-              <button
-                className={`${squareButton} top-[169px] left-[320px]`}
-                onClick={() => udp("Toggle", "ICP_ENTR_BTN")}
-              />
-              {}
-              <button
-                className={`${directionalButton} top-[313px] left-[87px]`}
-                onClick={() => udp("SendAndReturn", "ICP_DED_SW", "2", "1")}
-              />
-              <button
-                className={`${directionalButton} top-[357px] left-[87px]`}
-                onClick={() => udp("SendAndReturn", "ICP_DED_SW", "0", "1")}
-              />
-              {}
-              <button
-                className={`${directionalButton} top-[305px] left-[198px]`}
-                onClick={() =>
-                  udp("SendAndReturn", "ICP_DATA_UP_DN_SW", "2", "1")
-                }
-              />
-              <button
-                className={`${directionalButton} top-[357px] left-[198px]`}
-                onClick={() =>
-                  udp("SendAndReturn", "ICP_DATA_UP_DN_SW", "0", "1")
-                }
-              />
-              <button
-                className={`${directionalButton} top-[327px] left-[154px]`}
-                onClick={() =>
-                  udp("SendAndReturn", "ICP_DATA_RTN_SEQ_SW", "0", "1")
-                }
-              />
-              <button
-                className={`${directionalButton} top-[327px] left-[243px]`}
-                onClick={() =>
-                  udp("SendAndReturn", "ICP_DATA_RTN_SEQ_SW", "2", "1")
-                }
-              />
-            </div>
-            <div className="font-mono font-bold bg-black p-2 border-4 border-zinc-700 text-lime-400">
-              <div>1234567890123456789012345</div>
-              <div className="whitespace-pre">
-                {`UHF VHF    1TX `}
-                <span className="text-black bg-lime-400">*</span>
-                {`305°`}
-                <span className="text-black bg-lime-400">*</span>
-              </div>
-            </div>
-          </div>
-        )}
+        {pane === "icp" && <F16cICP />}
         {pane === "mfd" && (
           <div className="flex place-content-center items-center">
             <div>

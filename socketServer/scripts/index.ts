@@ -1,12 +1,16 @@
 import { Server } from "socket.io";
 
 const io = new Server({
-  path: "/dcs-socket/",
-  cors: { origin: ["http://localhost:3000"] },
+  cors: { origin: "*" },
 });
 
 io.on("connection", (socket) => {
   console.log("Someone connected");
 });
 
-io.listen(3001);
+const PORT = 3001;
+
+io.listen(PORT);
+console.log(
+  `Socket server is listening on ${PORT}.  Connect to http://192.168.0.x/dcs-socket`
+);
