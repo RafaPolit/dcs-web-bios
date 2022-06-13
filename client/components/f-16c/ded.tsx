@@ -4,10 +4,13 @@ import { f16cDEDState, F16cDEDKeys } from "../../atoms/f-16c-ded";
 
 type DEDLineProps = {
   text: string;
-  highlights: string;
+  highlights?: string;
 };
 
-const DEDLine = ({ text, highlights }: DEDLineProps) => {};
+const DEDLine = ({ text, highlights }: DEDLineProps) => {
+  const paddedText = text.padEnd(24, " ");
+  return <div className="whitespace-pre">{paddedText}</div>;
+};
 
 const DED = () => {
   const linesData = useRecoilValue(f16cDEDState);
@@ -15,14 +18,9 @@ const DED = () => {
   console.log(linesData);
   return (
     <div className="font-mono font-bold bg-black p-2 border-4 border-zinc-700 text-lime-400">
-      {properties.map((property) => {
-        const paddedText = linesData[property].text.padEnd(24, " ");
-        return (
-          <div key={property} className="whitespace-pre">
-            {paddedText}
-          </div>
-        );
-      })}
+      {properties.map((property) => (
+        <DEDLine key={property} text={linesData[property].text} />
+      ))}
     </div>
   );
 };
