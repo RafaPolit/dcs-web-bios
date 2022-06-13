@@ -1,3 +1,29 @@
+# DCS WEB BIOS
+
+This is a Web Server (based on NextJS) to provide a Web Interface to communicate with the fantastic DCS World Combat Simulator via the DCS-BIOS package.
+
+## Motivation
+
+I don't have all the toys to have the MFDs or control panels as physical buttons, but I have access to touch screens (RPi3 with official 7" screen, an iPad, etc.) which I can use to control DCS and avoid having to hold the stick with the other hand while I reach for the mouse.
+
+## Who this is for
+
+For those in a similar situation: people wanting a touch screen to do some common DCS interactions, but with some caveats:
+
+- This will require some minor knowledge as to how to setup a server.
+- It will work on a RPi (this is my use case), on a Laptop or other server, it could also bee run in the same machine as DCS but not sure how much it will impact performance
+- It only makes sense if you have a touch screen of some sort
+- At the begining the available interfaces are limited to those planes I own and have need for extra inputs that my HOTAS may not provide (mostly MFDs)
+- You need to have fixed and known IP addresses for all the machines involved in the process
+
+## What this is NOT
+
+This is not a hassle-free single-step "run everywhere" package that will just work out of the box. At this stage, this will require configurations, builds, several packages (at least NodeJS), some minor knowledge in networking. It is also not a place to ask for requests of specific features, but feel free to add issues and I will look into every request to see if it's something that I may find useful or can do at this point.
+
+Hope this is helpful. Best regards
+
+---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
