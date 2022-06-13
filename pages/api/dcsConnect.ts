@@ -2,9 +2,7 @@
 import events from "events";
 import type { NextApiRequest, NextApiResponse } from "next";
 import dgram from "dgram";
-import { timeout } from "../../scripts/timeout";
 import { parseBuffer } from "../../scripts/parser";
-import { stderr } from "process";
 
 let dcsClient: dgram.Socket;
 
@@ -116,20 +114,11 @@ const createEmitter = () => {
 const createSocket = (emitter: events) => {
   console.log("Creating socket");
   if (dcsClient) {
-    console.log("Already have a client");
-    try {
-      console.log("Trying to disconnect");
-      dcsClient.disconnect();
-    } catch (e) {
-      console.log("Already disconnected!");
-    }
-    console.log("Closing");
     dcsClient.close();
+    dcsData.length = 0;
   }
 
-  console.log("New socket!");
   return new Promise<void>((resolve, reject) => {
-    // var parser = ProtocolParser();
     dcsClient = dgram.createSocket({ type: "udp4", reuseAddr: true });
 
     dcsClient.on("error", (e) => {
@@ -140,22 +129,13 @@ const createSocket = (emitter: events) => {
     dcsClient.on("listening", () => {
       const address = dcsClient.address();
       console.log(`UDP Client listening on ${address.address}:${address.port}`);
-      // dcsClient.setMulticastTTL(128);
-      // dcsClient.addMembership("239.255.50.10");
     });
 
     dcsClient.on("message", (msg, rinfo) => {
-      // console.log("rinfo:", rinfo);
       parseBuffer(msg, emitter);
-      // console.log("----------------------");
-      // var data = new DataView(msg);
-      // console.log(data);
-      // for (var i = 0; i < data.byteLength; i++)
-      //   parser.processChar(data.getUint8(i));
     });
 
     dcsClient.bind(7777, () => {
-      // dcsClient.addMembership("239.255.50.10", "127.0.0.1");
       resolve();
     });
   });
@@ -166,8 +146,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   try {
     const emitter = createEmitter();
     await createSocket(emitter);
-    await timeout(10000);
-    console.log("waited 10 secs");
     res.status(200).json({ connected: "OK!" });
   } catch (e) {
     res.status(500).json({ connected: "Failed!" });
