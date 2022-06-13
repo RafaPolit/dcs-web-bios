@@ -1,7 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import dgram from "dgram";
-import { IP } from "../../config/dcs_conf";
 import { sendMsg } from "../../scripts/udp";
 
 type Data = {

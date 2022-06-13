@@ -1,5 +1,5 @@
 import dgram from "dgram";
-import { IP } from "../config/dcs_conf";
+import { IP } from "../config/dcsConf";
 
 const sendMsg = (client: dgram.Socket, msg: string, val?: string) => {
   const result = new Promise<number>((resolve, reject) => {
