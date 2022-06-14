@@ -66,8 +66,6 @@ const relevantAddresses = relevantData.reduce<number[]>((memo, property) => {
   return memo;
 }, []);
 
-console.log(relevantAddresses);
-
 type Data = {
   connected: string;
 };

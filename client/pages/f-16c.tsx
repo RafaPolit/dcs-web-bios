@@ -3,9 +3,13 @@ import { GiCog } from "react-icons/gi";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { udp } from "../scripts/udp";
+import { Socket } from "socket.io-client";
+import { useSetRecoilState } from "recoil";
 
+import { SocketContext } from "./_app";
+import { udp } from "../scripts/udp";
 import { F16cICP } from "../components/f-16c/icp";
+import { f16cDEDState } from "../atoms/f-16c-ded";
 
 const tabClass =
   "inline-block font-semibold px-6 py-3 rounded-t-lg hover:text-neutral-600 hover:bg-neutral-50 dark:hover:bg-neutral-800 dark:hover:text-neutral-300";
@@ -18,20 +22,28 @@ const mfdButton = "absolute w-[36px] h-[36px] bg-red-800 opacity-75";
 const mfdSwitch = "absolute w-[52px] h-[36px] bg-red-800 opacity-75";
 
 const Home: NextPage = () => {
+  const setf16cDed = useSetRecoilState(f16cDEDState);
   const [connected, setConnected] = useState(false);
   const [pane, setPane] = useState("icp");
   const [mfd, setMfd] = useState("L");
 
-  const udpSend = async (msg: string) => {
-    const apiCall = await fetch(`/api/udpSend?msg=${encodeURI(msg)}`);
-    await apiCall.json();
-  };
-
-  const connect = async () => {
+  const connect = async (socket: Socket) => {
     try {
-      const apiCall = await fetch("/api/dcsConnect");
-      const response = await apiCall.json();
-      setConnected(response.connected === "OK!" ? true : false);
+      socket.on(
+        "dcs-data-update",
+        ([property, data]: [property: string, data: string]) => {
+          setf16cDed((oldValues) => ({
+            ...oldValues,
+            [property]: {
+              text: data.substring(0, 24),
+              highlights: data.split("|")[1],
+            },
+          }));
+        }
+      );
+
+      socket.emit("connect-module", "f16c");
+      setConnected(true);
     } catch (e) {
       console.log(e);
       setConnected(false);
@@ -73,21 +85,27 @@ const Home: NextPage = () => {
         </button>
         {pane === "settings" && (
           <div>
-            <div className="p-4">
-              Connect to DCS:
-              <button
-                className="bg-neutral-500 px-4 py-2 mx-2 rounded-lg"
-                onClick={() => connect()}
-              >
-                Connect
-              </button>
-              <span className="text-neutral-400">
-                Only required for on-screen feedback, not to send data.
-              </span>
-            </div>
-            <div className="p-4">
-              Status: {connected ? "Connected" : "Not Connected"}
-            </div>
+            <SocketContext.Consumer>
+              {(socket) => (
+                <>
+                  <div className="p-4">
+                    Connect to DCS:
+                    <button
+                      className="bg-neutral-500 px-4 py-2 mx-2 rounded-lg"
+                      onClick={() => connect(socket)}
+                    >
+                      Connect
+                    </button>
+                    <span className="text-neutral-400">
+                      Only required for on-screen feedback, not to send data.
+                    </span>
+                  </div>
+                  <div className="p-4">
+                    Status: {connected ? "Connected" : "Not Connected"}
+                  </div>
+                </>
+              )}
+            </SocketContext.Consumer>
           </div>
         )}
         {pane === "icp" && <F16cICP />}
