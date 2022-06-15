@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useRecoilValue } from "recoil";
 import { f16cDEDState, F16cDEDKeys } from "../../atoms/f-16c-ded";
+import { useWindowSize } from "../../scripts/useWindowSize";
 
 type DEDLineProps = {
   text: string;
@@ -9,40 +10,6 @@ type DEDLineProps = {
 
 const inverseCharacter = "bg-lime-400 text-black";
 const specialCharactersFalconded = { a: "@", o: "^" };
-
-// Hook
-function useWindowSize() {
-  // Initialize state with undefined width/height so server and client renders match
-  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
-  const [windowSize, setWindowSize] = useState({
-    width: 10,
-    height: 10,
-  });
-
-  useEffect(() => {
-    // only execute all the code below in client side
-    if (typeof window !== "undefined") {
-      // Handler to call on window resize
-      function handleResize() {
-        // Set window width/height to state
-        setWindowSize({
-          width: window.innerWidth,
-          height: window.innerHeight,
-        });
-      }
-
-      // Add event listener
-      window.addEventListener("resize", handleResize);
-
-      // Call handler right away so state gets updated with initial window size
-      handleResize();
-
-      // Remove event listener on cleanup
-      return () => window.removeEventListener("resize", handleResize);
-    }
-  }, []); // Empty array ensures that effect is only run on mount
-  return windowSize;
-}
 
 const DEDLine = ({ text, highlights }: DEDLineProps) => {
   const size = useWindowSize();

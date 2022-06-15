@@ -4,10 +4,14 @@ import getConfig from "next/config";
 import { RecoilRoot } from "recoil";
 import { io, Socket } from "socket.io-client";
 import "../styles/globals.css";
+import {
+  socket as socketReference,
+  SocketContext,
+} from "../contexts/SocketContext";
 
 const { publicRuntimeConfig } = getConfig();
-let socket = {} as Socket;
-const SocketContext = React.createContext(socket);
+
+let socket = socketReference;
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {

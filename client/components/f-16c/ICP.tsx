@@ -1,17 +1,16 @@
 import React from "react";
 import Image from "next/image";
 import { udp } from "../../scripts/udp";
-import { DED } from "./ded";
+import { DED } from "./DED";
 
-const roundedButton =
-  "absolute top-[19px] w-[56px] h-[56px] rounded-full bg-red-800 opacity-75";
-const squareButton = "absolute w-[56px] h-[56px] bg-red-800 opacity-75";
-const directionalButton = "absolute w-[40px] h-[43px] bg-red-800 opacity-75";
+const roundedButton = "absolute top-[19px] w-[56px] h-[56px] rounded-full";
+const squareButton = "absolute w-[56px] h-[56px]";
+const directionalButton = "absolute w-[40px] h-[43px]";
 
 const F16cICP = () => {
   return (
     <div className="flex place-content-center space-x-2 items-start">
-      <div className="relative w-[551px] h-[412px] min-w-[551px] -ml-[36px]">
+      <div className="relative w-[551px] h-[412px] min-w-[551px]">
         <Image
           src="/f-16c/f-16c-icp.png"
           alt="F-16C Viper - ICP"

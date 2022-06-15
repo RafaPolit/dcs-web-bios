@@ -13,7 +13,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="p-3">
-        <div className="grid grid-cols-4 lg:grid-cols-8 gap-4">
+        <div className="grid grid-cols-4 lg:grid-cols-6 gap-4">
           <Link href="/bf-109k-4">
             <a className="text-center rounded-lg bg-gray-600 p-2">
               <div>
