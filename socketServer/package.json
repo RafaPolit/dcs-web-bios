@@ -9,5 +9,8 @@
   "optionalDependencies": {
     "bufferutil": "^4.0.6",
     "utf-8-validate": "^5.0.9"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.3"
   }
 }
