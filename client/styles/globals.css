@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@800&display=swap");
 
+@font-face {
+  font-family: "Falconded";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/falconded.ttf") format("truetype");
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

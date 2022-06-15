@@ -1,4 +1,5 @@
 import { Server } from "socket.io";
+import { getOwnIP } from "./utils";
 import { dcsReporter } from "./dcsReporter";
 import { Module } from "./relevantData";
 
@@ -13,9 +14,13 @@ io.on("connection", (socket) => {
   });
 });
 
-const PORT = 3001;
+const PORT = parseInt(process.env.PORT || "3001");
 
 io.listen(PORT);
+console.log(`dcs-web-bios Socket server is listening on ${PORT}`);
 console.log(
-  `Socket server is listening on ${PORT}.  Connect to http://localhost:${PORT}/`
+  `dcs-web-client should be configured with http://[${getOwnIP()}]:${PORT}/`
+);
+console.log(
+  `dcs-bios should be configured to broadcast UPD to [${getOwnIP()}] on PORT:${PORT}/`
 );

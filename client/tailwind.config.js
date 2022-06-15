@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         inconsolata: ["Inconsolata", "monospace"],
+        falconded: ["Falconded", "monospace"],
       },
     },
   },

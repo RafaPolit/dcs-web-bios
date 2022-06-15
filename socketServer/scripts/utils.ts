@@ -1,3 +1,4 @@
+import os from "os";
 export interface RelevantData {
   indentifier: string;
   address: number;
@@ -36,4 +37,18 @@ const reverse = (s: string) => {
   return s.split("").reverse().join("");
 };
 
-export { getRelevantAddresses, hexToUtf8, reverse };
+const getOwnIP = () => {
+  return Object.values(os.networkInterfaces()).reduce(
+    (r, list) =>
+      r.concat(
+        list.reduce(
+          (rr, i) =>
+            rr.concat((i.family === "IPv4" && !i.internal && i.address) || []),
+          []
+        )
+      ),
+    []
+  );
+};
+
+export { getRelevantAddresses, hexToUtf8, getOwnIP, reverse };

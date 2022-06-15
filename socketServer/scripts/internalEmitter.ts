@@ -24,6 +24,7 @@ const createInternalEmitter = (
       parsers[property.type](property, clientSocket);
     });
   });
+
   return internalEmitter;
 };
 

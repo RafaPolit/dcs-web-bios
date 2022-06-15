@@ -7,6 +7,7 @@ let dcsClient: dgram.Socket;
 
 const dcsListener = (internalEmitter: events) => {
   if (dcsClient) {
+    console.log("Closing dcsClient and flushing dcsData.");
     dcsClient.close();
     for (let data in dcsData) delete dcsData[data];
   }
