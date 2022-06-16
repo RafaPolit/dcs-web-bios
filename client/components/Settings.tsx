@@ -1,29 +1,27 @@
 import { useState } from "react";
 import { useSetRecoilState } from "recoil";
 import { Socket } from "socket.io-client";
-import { f16cDEDState } from "../../atoms/f-16c-ded";
-import { SocketContext } from "../../contexts/SocketContext";
+import { dcsDataState } from "../atoms/dcsData";
+import { SocketContext } from "../contexts/SocketContext";
 
-const Settings = () => {
-  const setf16cDed = useSetRecoilState(f16cDEDState);
+type SettingsProps = {
+  module: string;
+};
+
+const Settings = ({ module }: SettingsProps) => {
+  const setDcsData = useSetRecoilState(dcsDataState);
   const [connected, setConnected] = useState(false);
 
   const connect = async (socket: Socket) => {
     try {
+      setDcsData({});
       socket.on(
         "dcs-data-update",
         ([property, data]: [property: string, data: string]) => {
-          setf16cDed((oldValues) => ({
-            ...oldValues,
-            [property]: {
-              text: data.substring(0, 24),
-              highlights: data.split("|")[1],
-            },
-          }));
+          setDcsData((oldValues) => ({ ...oldValues, [property]: data }));
         }
       );
-
-      socket.emit("connect-module", "f16c");
+      socket.emit("connect-module", module);
       setConnected(true);
     } catch (e) {
       console.log(e);

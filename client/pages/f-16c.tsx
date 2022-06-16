@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { GiCog } from "react-icons/gi";
 import type { NextPage } from "next";
 import Head from "next/head";
 
 import { F16cICP } from "../components/f-16c/ICP";
-import { Settings } from "../components/f-16c/Settings";
+import { Settings } from "../components/Settings";
 import { MFDs } from "../components/f-16c/MFDs";
-import { Tabs } from "../components/Tabs";
+import { Tabs } from "../components/f-16c/Tabs";
 
 const Home: NextPage = () => {
   const [pane, setPane] = useState("icp");
@@ -21,7 +20,7 @@ const Home: NextPage = () => {
 
       <main className="">
         <Tabs pane={pane} setPane={setPane} />
-        {pane === "settings" && <Settings />}
+        {pane === "settings" && <Settings module="f16c" />}
         {pane === "icp" && <F16cICP />}
         {pane === "mfds" && <MFDs />}
       </main>

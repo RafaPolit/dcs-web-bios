@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { io, Socket } from "socket.io-client";
 
-let socket = {} as Socket;
-const SocketContext = React.createContext(socket);
+const SocketContext = React.createContext({} as Socket);
 
-export { socket, SocketContext };
+export { SocketContext };
