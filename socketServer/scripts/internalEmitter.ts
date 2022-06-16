@@ -1,6 +1,6 @@
 import events from "events";
 import { Socket } from "socket.io";
-import { dcsData } from "./dcsDataSingleton";
+import { dcsData } from "./dcsDataSingletons";
 import { getRelevantAddresses, RelevantData } from "./utils";
 
 import * as parsers from "./parsers";

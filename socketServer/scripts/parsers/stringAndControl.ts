@@ -1,6 +1,6 @@
 import { Socket } from "socket.io";
 import { hexToUtf8, reverse, RelevantData } from "../utils";
-import { dcsData } from "../dcsDataSingleton";
+import { dcsData, previousUpdates } from "../dcsDataSingletons";
 
 const stringAndControl = (property: RelevantData, clientSocket: Socket) => {
   let output = "";
@@ -25,7 +25,10 @@ const stringAndControl = (property: RelevantData, clientSocket: Socket) => {
     }
   }
   if (output) {
-    clientSocket.emit("dcs-data-update", [property.indentifier, output]);
+    if (previousUpdates[property.indentifier] !== output) {
+      previousUpdates[property.indentifier] = output;
+      clientSocket.emit("dcs-data-update", [property.indentifier, output]);
+    }
   }
 };
 

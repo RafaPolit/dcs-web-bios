@@ -1,6 +1,6 @@
 import events from "events";
 import { Socket } from "socket.io";
-import { dcsData } from "./dcsDataSingleton";
+import { dcsData } from "./dcsDataSingletons";
 import { dcsListener } from "./dcsListener";
 import { createInternalEmitter } from "./internalEmitter";
 
