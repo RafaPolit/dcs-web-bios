@@ -42,7 +42,7 @@ const Home: NextPage = () => {
               </div>
             </a>
           </Link>
-          <Link href="/f-14">
+          <Link href="/f-14b">
             <a className="text-center rounded-lg bg-gray-600 p-2">
               <div>
                 <Image

@@ -3,7 +3,7 @@ export interface RelevantData {
   indentifier: string;
   address: number;
   max_length: number;
-  type: "stringAndControl";
+  type: "string" | "stringAndControl";
 }
 
 const getRelevantAddresses = (relevantData: RelevantData[]) => {

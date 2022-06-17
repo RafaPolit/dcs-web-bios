@@ -7,7 +7,7 @@ const roundedButton = "absolute top-[19px] w-[56px] h-[56px] rounded-full";
 const squareButton = "absolute w-[56px] h-[56px]";
 const directionalButton = "absolute w-[40px] h-[43px]";
 
-const F16cICP = () => {
+const ICP = () => {
   return (
     <div className="flex place-content-center space-x-2 items-start">
       <div className="relative w-[551px] h-[412px] min-w-[551px]">
@@ -124,4 +124,4 @@ const F16cICP = () => {
   );
 };
 
-export { F16cICP };
+export { ICP };

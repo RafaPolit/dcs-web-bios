@@ -10,18 +10,10 @@ const ModuleTabs = ({ pane, setPane }: TabsProps) => {
     <Tabs pane={pane} setPane={setPane}>
       <li>
         <button
-          className={pane === "icp" ? tabClassCurrent : tabClass}
-          onClick={() => setPane("icp")}
+          className={pane === "displays" ? tabClassCurrent : tabClass}
+          onClick={() => setPane("displays")}
         >
-          ICP
-        </button>
-      </li>
-      <li>
-        <button
-          className={pane === "mfds" ? tabClassCurrent : tabClass}
-          onClick={() => setPane("mfds")}
-        >
-          MFDs
+          Displays
         </button>
       </li>
     </Tabs>
