@@ -1,5 +1,5 @@
 import { Socket } from "socket.io";
-import { hexToUtf8, reverse, RelevantData } from "../utils";
+import { hexToUtf8, RelevantData } from "../utils";
 import { dcsData, previousUpdates } from "../dcsDataSingletons";
 
 const string = (property: RelevantData, clientSocket: Socket) => {
@@ -9,10 +9,17 @@ const string = (property: RelevantData, clientSocket: Socket) => {
     address < property.address + property.max_length;
     address++
   ) {
-    output +=
-      dcsData[address] !== undefined
-        ? hexToUtf8(dcsData[address].toString(16))
-        : "";
+    const baseAddress = address - (address % 2);
+    const baseData = dcsData[baseAddress];
+    let data: number;
+
+    if (typeof baseData !== "undefined") {
+      data = address % 2 ? baseData >> 8 : baseData & 0xff;
+    }
+
+    if (address < property.address + property.max_length) {
+      output += data !== undefined ? hexToUtf8(data.toString(16)) : " ";
+    }
   }
   if (output) {
     if (previousUpdates[property.indentifier] !== output) {

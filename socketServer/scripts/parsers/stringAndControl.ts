@@ -9,18 +9,26 @@ const stringAndControl = (property: RelevantData, clientSocket: Socket) => {
     address < property.address + property.max_length;
     address++
   ) {
-    if (address < property.address + property.max_length - 4) {
+    const baseAddress = address - (address % 2);
+    const baseData = dcsData[baseAddress];
+    let data: number;
+
+    if (typeof baseData !== "undefined") {
+      data = address % 2 ? baseData >> 8 : baseData & 0xff;
+    }
+
+    if (address < property.address + property.string_length) {
+      output += data !== undefined ? hexToUtf8(data.toString(16)) : " ";
+    }
+
+    if (address === property.address + property.control_chars[0]) {
+      output += "|";
+    }
+
+    if (property.control_chars.includes(address - property.address)) {
       output +=
-        dcsData[address] !== undefined
-          ? hexToUtf8(dcsData[address].toString(16))
-          : "";
-    } else {
-      if (address === property.address + property.max_length - 4) {
-        output += "|";
-      }
-      output +=
-        dcsData[address] !== undefined
-          ? reverse(dcsData[address].toString(2)).padEnd(8, "0")
+        data !== undefined
+          ? reverse(data.toString(2)).padEnd(8, "0")
           : "00000000";
     }
   }

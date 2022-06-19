@@ -48,12 +48,7 @@ function ProtocolParser(emitter: events) {
       case "DATA_HIGH":
         dataUint8[1] = c;
         countUint16[0]--;
-        emitter.emit("dcs-bios-write", [
-          addressUint16,
-          dataUint16,
-          dataUint8[0],
-          dataUint8[1],
-        ]);
+        emitter.emit("dcs-bios-write", [addressUint16, dataUint16]);
         addressUint16[0] += 2;
         if (countUint16[0] === 0) {
           state = "ADDRESS_LOW";

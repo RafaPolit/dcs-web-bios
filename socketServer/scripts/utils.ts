@@ -1,9 +1,14 @@
 import os from "os";
 export interface RelevantData {
   indentifier: string;
+  type: "integer" | "string" | "stringAndControl";
   address: number;
-  max_length: number;
-  type: "string" | "stringAndControl";
+  mask?: number;
+  shift_by?: number;
+  max_length?: number;
+  string_length?: number;
+  control_chars?: number[];
+  max_value?: number;
 }
 
 const getRelevantAddresses = (relevantData: RelevantData[]) => {
@@ -11,7 +16,7 @@ const getRelevantAddresses = (relevantData: RelevantData[]) => {
     let a = property.address;
     for (
       a = property.address;
-      a < property.address + property.max_length;
+      a < property.address + (property.max_length || 1);
       a++
     ) {
       memo.push(a);
@@ -27,7 +32,7 @@ const hexToUtf8 = (s: string) => {
       s.replace(/[0-9a-f]{2}/g, "%$&") // add '%' before each 2 characters
     );
   } catch (e) {
-    // not sure yet
+    console.log("Problem converting:", s, "to Utf8.");
   }
 
   return conversion;

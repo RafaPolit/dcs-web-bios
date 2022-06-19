@@ -2,7 +2,6 @@ import events from "events";
 import { Socket } from "socket.io";
 import { dcsData } from "./dcsDataSingletons";
 import { getRelevantAddresses, RelevantData } from "./utils";
-
 import * as parsers from "./parsers";
 
 const createInternalEmitter = (
@@ -12,10 +11,9 @@ const createInternalEmitter = (
   const relevantAddresses = getRelevantAddresses(relevantData);
   const internalEmitter = new events.EventEmitter();
 
-  internalEmitter.on("dcs-bios-write", ([address, data, char1, char2]) => {
+  internalEmitter.on("dcs-bios-write", ([address, data]) => {
     if (relevantAddresses.includes(address[0])) {
-      dcsData[address[0]] = char1;
-      dcsData[address[0] + 1] = char2;
+      dcsData[address[0]] = data[0];
     }
   });
 
