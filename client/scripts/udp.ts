@@ -3,6 +3,8 @@ import { IP } from "../config/dcsConf";
 
 const sendMsg = (client: dgram.Socket, msg: string, val?: string) => {
   const result = new Promise<number>((resolve, reject) => {
+    console.log("going to send:");
+    console.log(`${msg}${val !== undefined ? " " + val : ""}\n`);
     client.send(
       `${msg}${val !== undefined ? " " + val : ""}\n`,
       7778,

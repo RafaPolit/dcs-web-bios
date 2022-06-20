@@ -32,15 +32,15 @@ const IoSwitches = ({ modes }: IoSwitchesProps) => {
       <div className="absolute left-[241px] top-[192px]">
         {Boolean(modes[5]) && <F14Image url="PLT_HSD_ECM_OVER" w={23} h={48} />}
       </div>
-      {/* <div className="absolute left-[241px] top-[192px]">
-        {Boolean(modes[6]) && <F14Image url="PLT_VDI_PW_SW" w={23} h={48} />}
+      <div className="absolute left-[81px] top-[280px]">
+        {Boolean(modes[6]) && <F14Image url="PLT_VDI_PW_SW" w={19} h={48} />}
       </div>
-      <div className="absolute left-[241px] top-[192px]">
-        {Boolean(modes[7]) && <F14Image url="PLT_HUD_PW_SW" w={23} h={48} />}
+      <div className="absolute left-[155px] top-[280px]">
+        {Boolean(modes[7]) && <F14Image url="PLT_HUD_PW_SW" w={21} h={48} />}
       </div>
-      <div className="absolute left-[241px] top-[192px]">
-        {Boolean(modes[8]) && <F14Image url="PLT_HSD_PW_SW" w={23} h={48} />}
-      </div> */}
+      <div className="absolute left-[240px] top-[280px]">
+        {Boolean(modes[8]) && <F14Image url="PLT_HSD_PW_SW" w={20} h={48} />}
+      </div>
     </>
   );
 };

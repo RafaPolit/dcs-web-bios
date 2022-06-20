@@ -3,6 +3,7 @@ import { useRecoilValue } from "recoil";
 import { dcsDataState } from "../../atoms/dcsData";
 import { IoSwitches } from "./IoSwitches";
 import { PLT_HUD_MODES } from "./PLT_HUD_MODES";
+import { PLT_STEER_MODES } from "./PLT_STEER_MODES";
 
 const DisplayImages = () => {
   const dcsData = useRecoilValue(dcsDataState);
@@ -25,6 +26,7 @@ const DisplayImages = () => {
     <div className="relative top-0 left-0 w-[311px] h-[420px] min-w-[311px]">
       <PLT_HUD_MODES mode={hudMode} />
       <IoSwitches modes={ioSwitchesModes} />
+      <PLT_STEER_MODES mode={steerMode} />
     </div>
   );
 };
