@@ -13,7 +13,7 @@ const ModuleTabs = ({ pane, setPane }: TabsProps) => {
           className={pane === "displays" ? tabClassCurrent : tabClass}
           onClick={() => setPane("displays")}
         >
-          Displays
+          Displays &amp; AP
         </button>
       </li>
     </Tabs>

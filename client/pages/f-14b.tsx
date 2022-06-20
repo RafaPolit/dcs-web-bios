@@ -4,9 +4,9 @@ import Head from "next/head";
 
 import { Settings } from "../components/Settings";
 import { Tabs } from "../components/f-14b/Tabs";
-import { Displays } from "../components/f-14b/Displays";
+import { DisplaysAndAP } from "../components/f-14b/DisplaysAndAP";
 
-const Home: NextPage = () => {
+const F14BMain: NextPage = () => {
   const [pane, setPane] = useState("displays");
 
   return (
@@ -20,10 +20,10 @@ const Home: NextPage = () => {
       <main className="">
         <Tabs pane={pane} setPane={setPane} />
         {pane === "settings" && <Settings module="f14b" />}
-        {pane === "displays" && <Displays />}
+        {pane === "displays" && <DisplaysAndAP />}
       </main>
     </div>
   );
 };
 
-export default Home;
+export default F14BMain;

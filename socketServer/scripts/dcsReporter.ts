@@ -1,6 +1,5 @@
 import events from "events";
 import { Socket } from "socket.io";
-import { dcsData } from "./dcsDataSingletons";
 import { dcsListener } from "./dcsListener";
 import { createInternalEmitter } from "./internalEmitter";
 
@@ -24,4 +23,4 @@ const dcsReporter = (
   console.log(`Connected to ${module}`);
 };
 
-export { dcsReporter, dcsData };
+export { dcsReporter };

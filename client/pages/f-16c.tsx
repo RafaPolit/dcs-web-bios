@@ -7,7 +7,7 @@ import { Settings } from "../components/Settings";
 import { MFDs } from "../components/f-16c/MFDs";
 import { Tabs } from "../components/f-16c/Tabs";
 
-const Home: NextPage = () => {
+const F16CMain: NextPage = () => {
   const [pane, setPane] = useState("icp");
 
   return (
@@ -28,4 +28,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default F16CMain;
