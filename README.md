@@ -109,7 +109,7 @@ From the project's root:
 
 ```
 $ cd client/
-$ DCS_IP=http://192.168.X.X yarn start
+$ DCS_IP=192.168.X.X yarn start
 ```
 
 This starts a NextJS server on port 3000 (default). If you want to run on different ports, please consult the NextJS documentation.
@@ -121,13 +121,13 @@ With that, you should be able to navigate from a Web browser to: `http://192.168
 If the socket server is running on a different port than the default 3001 one, you can:
 
 ```
-$ DCS_IP=http://192.168.X.X SOCKET_PORT=4321 yarn start
+$ DCS_IP=192.168.X.X SOCKET_PORT=4321 yarn start
 ```
 
 If the socket server is running on a different machine than the Web server (not recommended and not fully tested), you can instead do:
 
 ```
-$ DCS_IP=http://192.168.X.X SOCKET_URL=http://192.168.X.Y:4321 yarn start
+$ DCS_IP=192.168.X.X SOCKET_URL=http://192.168.X.Y:4321 yarn start
 ```
 
 ## Using the Web Client
