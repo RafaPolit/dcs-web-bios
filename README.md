@@ -18,6 +18,13 @@ For those in a similar situation: people wanting a touch screen to do some commo
 - At the moment, the available interfaces are limited to those modules I own and have need for extra inputs that my HOTAS may not provide (mostly MFDs)
 - As hinted above, you need to have fixed and known IP addresses for the machines involved in the process
 
+## Initial Modules / Screens
+
+This list will grow! But, for the time being, you have access to limited modules and screens. Currently:
+
+- F-16C Viper with access to ICP (with DED feedback) and MFDs
+- F-14 (A and B) Tomcat with access to Displays panel and Auto Pilot
+
 ## What this project is NOT
 
 This is not a hassle-free single-step "run everywhere" package that will just work out of the box. At this stage, this will require configurations, builds, several packages (at least NodeJS), some minor knowledge in networking. I am also probably not going to be able to satisfy everyone's interests or needs at this point or any specific features, but feel free to add issues to the Github repo and I will look into every request to see if it's something that I may find useful or can do at this point.
