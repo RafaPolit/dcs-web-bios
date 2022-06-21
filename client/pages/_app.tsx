@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     const newSocket = io(publicRuntimeConfig.socketURL || socketURL.toString());
     const socketInitializer = async () => {
       newSocket.on("connect", () => {
-        console.log("connected");
+        console.log("Connected!");
       });
     };
 

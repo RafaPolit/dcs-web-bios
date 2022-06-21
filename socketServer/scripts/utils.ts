@@ -1,6 +1,6 @@
 import os from "os";
 export interface RelevantData {
-  indentifier: string;
+  identifier: string;
   type: "integer" | "string" | "stringAndControl";
   address: number;
   mask?: number;

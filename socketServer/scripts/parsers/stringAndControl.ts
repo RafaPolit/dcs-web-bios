@@ -1,8 +1,8 @@
-import { Socket } from "socket.io";
+import { Server } from "socket.io";
 import { hexToUtf8, reverse, RelevantData } from "../utils";
 import { dcsData, previousUpdates } from "../dcsDataSingletons";
 
-const stringAndControl = (property: RelevantData, clientSocket: Socket) => {
+const stringAndControl = (property: RelevantData, io: Server) => {
   let output = "";
   for (
     let address = property.address;
@@ -13,12 +13,12 @@ const stringAndControl = (property: RelevantData, clientSocket: Socket) => {
     const baseData = dcsData[baseAddress];
     let data: number;
 
-    if (typeof baseData !== "undefined") {
+    if (baseData) {
       data = address % 2 ? baseData >> 8 : baseData & 0xff;
     }
 
     if (address < property.address + property.string_length) {
-      output += data !== undefined ? hexToUtf8(data.toString(16)) : " ";
+      output += data ? hexToUtf8(data.toString(16)) : " ";
     }
 
     if (address === property.address + property.control_chars[0]) {
@@ -33,9 +33,9 @@ const stringAndControl = (property: RelevantData, clientSocket: Socket) => {
     }
   }
   if (output) {
-    if (previousUpdates[property.indentifier] !== output) {
-      previousUpdates[property.indentifier] = output;
-      clientSocket.emit("dcs-data-update", [property.indentifier, output]);
+    if (previousUpdates[property.identifier] !== output) {
+      previousUpdates[property.identifier] = output;
+      io.emit("dcs-data-update", [property.identifier, output]);
     }
   }
 };

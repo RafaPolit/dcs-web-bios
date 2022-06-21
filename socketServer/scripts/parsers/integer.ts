@@ -1,8 +1,8 @@
-import { Socket } from "socket.io";
-import { hexToUtf8, RelevantData } from "../utils";
+import { Server } from "socket.io";
+import { RelevantData } from "../utils";
 import { dcsData, previousUpdates } from "../dcsDataSingletons";
 
-const integer = (property: RelevantData, clientSocket: Socket) => {
+const integer = (property: RelevantData, io: Server) => {
   let output = "";
   const data = dcsData[property.address];
 
@@ -11,9 +11,9 @@ const integer = (property: RelevantData, clientSocket: Socket) => {
   }
 
   if (output) {
-    if (previousUpdates[property.indentifier] !== output) {
-      previousUpdates[property.indentifier] = output;
-      clientSocket.emit("dcs-data-update", [property.indentifier, output]);
+    if (previousUpdates[property.identifier] !== output) {
+      previousUpdates[property.identifier] = output;
+      io.emit("dcs-data-update", [property.identifier, output]);
     }
   }
 };

@@ -2,19 +2,25 @@ import { RelevantData } from "../utils";
 
 const relevantData: RelevantData[] = [
   {
-    indentifier: "PLT_HUD_MODE",
+    identifier: "_ACFT_NAME",
+    address: 0x0000,
+    max_length: 24,
+    type: "string",
+  },
+  {
+    identifier: "PLT_HUD_MODE",
     address: 5258,
     max_length: 1,
     type: "string",
   },
   {
-    indentifier: "PLT_STEER_MODE",
+    identifier: "PLT_STEER_MODE",
     address: 5260,
     max_length: 1,
     type: "string",
   },
   {
-    indentifier: "PLT_HUD_DECLUTTER",
+    identifier: "PLT_HUD_DECLUTTER",
     address: 4722,
     mask: 16384,
     shift_by: 14,
@@ -22,7 +28,7 @@ const relevantData: RelevantData[] = [
     type: "integer",
   },
   {
-    indentifier: "PLT_HUD_MODE_AWL",
+    identifier: "PLT_HUD_MODE_AWL",
     address: 4722,
     mask: 32768,
     shift_by: 15,
@@ -30,7 +36,7 @@ const relevantData: RelevantData[] = [
     type: "integer",
   },
   {
-    indentifier: "PLT_VDI_MODE_DISP",
+    identifier: "PLT_VDI_MODE_DISP",
     address: 4722,
     mask: 4096,
     shift_by: 12,
@@ -38,7 +44,7 @@ const relevantData: RelevantData[] = [
     type: "integer",
   },
   {
-    indentifier: "PLT_VDI_MODE_LAND",
+    identifier: "PLT_VDI_MODE_LAND",
     address: 4722,
     mask: 8192,
     shift_by: 13,
@@ -46,7 +52,7 @@ const relevantData: RelevantData[] = [
     type: "integer",
   },
   {
-    indentifier: "PLT_HSD_DIS_MODE",
+    identifier: "PLT_HSD_DIS_MODE",
     address: 4642,
     mask: 384,
     shift_by: 7,
@@ -54,7 +60,7 @@ const relevantData: RelevantData[] = [
     type: "integer",
   },
   {
-    indentifier: "PLT_HSD_ECM_OVER",
+    identifier: "PLT_HSD_ECM_OVER",
     address: 4642,
     mask: 512,
     shift_by: 9,
@@ -62,7 +68,7 @@ const relevantData: RelevantData[] = [
     type: "integer",
   },
   {
-    indentifier: "PLT_VDI_PW_SW",
+    identifier: "PLT_VDI_PW_SW",
     address: 4636,
     mask: 32768,
     shift_by: 15,
@@ -70,7 +76,7 @@ const relevantData: RelevantData[] = [
     type: "integer",
   },
   {
-    indentifier: "PLT_HUD_PW_SW",
+    identifier: "PLT_HUD_PW_SW",
     address: 4642,
     mask: 1,
     shift_by: 0,
@@ -78,7 +84,7 @@ const relevantData: RelevantData[] = [
     type: "integer",
   },
   {
-    indentifier: "PLT_HSD_PW_SW",
+    identifier: "PLT_HSD_PW_SW",
     address: 4642,
     mask: 2,
     shift_by: 1,
@@ -86,7 +92,7 @@ const relevantData: RelevantData[] = [
     type: "integer",
   },
   {
-    indentifier: "PLT_AFCS_PITCH",
+    identifier: "PLT_AFCS_PITCH",
     address: 0x120a,
     mask: 0x4000,
     shift_by: 14,
@@ -94,7 +100,7 @@ const relevantData: RelevantData[] = [
     type: "integer",
   },
   {
-    indentifier: "PLT_AFCS_ROLL",
+    identifier: "PLT_AFCS_ROLL",
     address: 0x120a,
     mask: 0x8000,
     shift_by: 15,
@@ -102,7 +108,7 @@ const relevantData: RelevantData[] = [
     type: "integer",
   },
   {
-    indentifier: "PLT_AFCS_YAW",
+    identifier: "PLT_AFCS_YAW",
     address: 0x1210,
     mask: 0x0001,
     shift_by: 0,
@@ -110,7 +116,7 @@ const relevantData: RelevantData[] = [
     type: "integer",
   },
   {
-    indentifier: "PLT_AUTOPLT_VECTOR_CARRIER",
+    identifier: "PLT_AUTOPLT_VECTOR_CARRIER",
     address: 0x1210,
     mask: 0x0006,
     shift_by: 1,
@@ -118,7 +124,7 @@ const relevantData: RelevantData[] = [
     type: "integer",
   },
   {
-    indentifier: "PLT_AUTOPLT_ALT",
+    identifier: "PLT_AUTOPLT_ALT",
     address: 0x1210,
     mask: 0x0008,
     shift_by: 3,
@@ -126,7 +132,7 @@ const relevantData: RelevantData[] = [
     type: "integer",
   },
   {
-    indentifier: "PLT_AUTOPLT_HDG",
+    identifier: "PLT_AUTOPLT_HDG",
     address: 0x1210,
     mask: 0x0030,
     shift_by: 4,
@@ -134,7 +140,7 @@ const relevantData: RelevantData[] = [
     type: "integer",
   },
   {
-    indentifier: "PLT_AUTOPLT_ENGAGE",
+    identifier: "PLT_AUTOPLT_ENGAGE",
     address: 0x1210,
     mask: 0x0040,
     shift_by: 6,

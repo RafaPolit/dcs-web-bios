@@ -1,13 +1,10 @@
 import events from "events";
-import { Socket } from "socket.io";
+import { Server } from "socket.io";
 import { dcsData } from "./dcsDataSingletons";
 import { getRelevantAddresses, RelevantData } from "./utils";
 import * as parsers from "./parsers";
 
-const createInternalEmitter = (
-  relevantData: RelevantData[],
-  clientSocket: Socket
-) => {
+const createInternalEmitter = (relevantData: RelevantData[], io: Server) => {
   const relevantAddresses = getRelevantAddresses(relevantData);
   const internalEmitter = new events.EventEmitter();
 
@@ -19,7 +16,7 @@ const createInternalEmitter = (
 
   internalEmitter.on("dcs-bios-frame-sync", () => {
     relevantData.forEach((property) => {
-      parsers[property.type](property, clientSocket);
+      parsers[property.type](property, io);
     });
   });
 
