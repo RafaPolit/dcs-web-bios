@@ -2,6 +2,8 @@
 
 This project consists of a Web and Socket Servers to provide a Web Interface to communicate with the fantastic [DCS World Combat Simulator](https://www.digitalcombatsimulator.com/) via the [DCS-BIOS](https://github.com/DCSFlightpanels/dcs-bios) package (the DCSFlightpanels fork).
 
+![image](https://user-images.githubusercontent.com/4309019/174889729-0fecc6e4-7dd1-45dc-8538-fff84af81555.png)
+
 ## Motivation
 
 I don't have all the gadgets to have the MFDs or control panels as physical buttons, but I have access to some touch screens (RPi3 with official 7" screen, an iPad, etc.) which I can use to control DCS and avoid having weird interactions with the H.O.T.A.S while reaching for the mouse.
