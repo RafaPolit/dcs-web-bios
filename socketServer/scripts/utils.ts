@@ -1,4 +1,6 @@
 import os from "os";
+import { Socket } from "socket.io";
+import { previousUpdates } from "./dcsDataSingletons";
 export interface RelevantData {
   identifier: string;
   type: "integer" | "string" | "stringAndControl";
@@ -56,4 +58,11 @@ const getOwnIP = () => {
   );
 };
 
-export { getRelevantAddresses, hexToUtf8, getOwnIP, reverse };
+const populateClient = (socket: Socket) => {
+  console.log("Sending current data to new client.");
+  for (const identifier in previousUpdates) {
+    socket.emit("dcs-data-update", [identifier, previousUpdates[identifier]]);
+  }
+};
+
+export { getRelevantAddresses, hexToUtf8, getOwnIP, reverse, populateClient };
