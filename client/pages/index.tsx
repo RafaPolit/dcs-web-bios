@@ -14,20 +14,6 @@ const Home: NextPage = () => {
 
       <main className="p-3">
         <div className="grid grid-cols-4 lg:grid-cols-6 gap-4">
-          <Link href="/bf-109k-4">
-            <a className="text-center rounded-lg bg-gray-600 p-2">
-              <div>
-                <Image
-                  src="/modules/Bf-109-DVD-cover_700x1000px.jpg"
-                  alt="Bf 109 K-4 Kurfurst"
-                  layout="responsive"
-                  width="700"
-                  height="1000"
-                />
-                <h3 className="font-bold">Bf 109 K-4 Kurfurst</h3>
-              </div>
-            </a>
-          </Link>
           <Link href="/f-16c">
             <a className="text-center rounded-lg bg-gray-600 p-2">
               <div>

@@ -3,8 +3,9 @@ import type { AppProps } from "next/app";
 import getConfig from "next/config";
 import { RecoilRoot } from "recoil";
 import { io, Socket } from "socket.io-client";
-import "../styles/globals.css";
 import { SocketContext } from "../contexts/SocketContext";
+
+import "../styles/globals.css";
 
 const { publicRuntimeConfig } = getConfig();
 

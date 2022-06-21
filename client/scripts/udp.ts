@@ -1,12 +1,14 @@
 import dgram from "dgram";
-import { IP } from "../config/dcsConf";
+import getConfig from "next/config";
+
+const { publicRuntimeConfig } = getConfig();
 
 const sendMsg = (client: dgram.Socket, msg: string, val?: string) => {
   const result = new Promise<number>((resolve, reject) => {
     client.send(
       `${msg}${val !== undefined ? " " + val : ""}\n`,
       7778,
-      IP,
+      publicRuntimeConfig.dcsIP,
       (err, bytes) => {
         if (err) {
           console.log("err:", err);
