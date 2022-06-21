@@ -49,7 +49,12 @@ addBIOS.protocol_io.connections = {
 
 ## Structure of the tools
 
-The system is composed of two different main components:
+The system is composed of two different components:
+
+- A main Web Server (client), which sends the UPD commands to port 7778
+- A Socket Server, which is the responsible for listening to DCS data changes and report back to the Web Server
+
+The Socket Server is not required, clicking on the different buttons of the pages will send the correct messages to DCS-BIOS, but any feedback from DCS requires the socket server. Since it's relatively easy to configure, I suggest you use both.
 
 ---
 
