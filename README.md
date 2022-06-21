@@ -1,10 +1,10 @@
 # DCS WEB BIOS
 
-This project consists of a Web Server (based on NextJS) to provide a Web Interface to communicate with the fantastic [DCS World Combat Simulator](https://www.digitalcombatsimulator.com/) via the [DCS-BIOS](https://github.com/DCSFlightpanels/dcs-bios) package (the DCSFlightpanels fork).
+This project consists of a Web and Socket Servers to provide a Web Interface to communicate with the fantastic [DCS World Combat Simulator](https://www.digitalcombatsimulator.com/) via the [DCS-BIOS](https://github.com/DCSFlightpanels/dcs-bios) package (the DCSFlightpanels fork).
 
 ## Motivation
 
-I don't have all the gadgets to have the MFDs or control panels as physical buttons, but I have access to some touch screens (RPi3 with official 7" screen, an iPad, etc.) which I can use to control DCS and avoid having weird interactions with the H.O.T.A.S while I reach for the mouse.
+I don't have all the gadgets to have the MFDs or control panels as physical buttons, but I have access to some touch screens (RPi3 with official 7" screen, an iPad, etc.) which I can use to control DCS and avoid having weird interactions with the H.O.T.A.S while reaching for the mouse.
 
 ## Who is this for
 
@@ -18,9 +18,9 @@ For those in a similar situation: people wanting a touch screen to do some commo
 
 ## What this project is NOT
 
-This is not a hassle-free single-step "run everywhere" package that will just work out of the box. At this stage, this will require configurations, builds, several packages (at least NodeJS), some minor knowledge in networking. It is also not a place to ask for requests or specific features, but feel free to add issues to the Github repo and I will look into every request to see if it's something that I may find useful or can do at this point.
+This is not a hassle-free single-step "run everywhere" package that will just work out of the box. At this stage, this will require configurations, builds, several packages (at least NodeJS), some minor knowledge in networking. I am also probably not going to be able to satisfy everyone's interests or needs at this point or any specific features, but feel free to add issues to the Github repo and I will look into every request to see if it's something that I may find useful or can do at this point.
 
-Hope this tool is helpful to others. Best regards
+I Hope this tool is helpful to others. Best regards
 
 ## Before you begin
 
@@ -29,12 +29,14 @@ Some minor steps need to be taken in order for this project to work:
 - Have fixed (or at least known) IP for the main computer running DCS
 - Have fixed (or at least known) IP for the machine running the two services this tool provides: the Web server and the Socket server (they both can run in the same machine and that is the recommended approach for minimal configurations)
 - Have DCS-Bios installed and working (I won't cover how to do that, please refer to the extensive info on the [dcs-bios repo](https://github.com/DCSFlightpanels/dcs-bios) )
+- Have the latest NodeJS LTS version on the machine you intend to run the Web and Socket servers
+- I have only tested this on Debian / Ubutntu machines, so I cannot guarantee it will work on other environments, some experimentation / tweaking may be required.
 
 ## First steps
 
 It is **CRUCIAL!** that you configure DCS to broadcast via UDP to the machine running the services.
 
-In order to do so, go into `<Saved Games Folder>/DCS\[.openBeta\]/Scripts/DCS-BIOS/BIOSConfig.lua` and add (uncomment) one of the fixed address UDPSender lines. It should read something like:
+In order to do so, go into `<Saved Games Folder>/DCS[.openBeta]/Scripts/DCS-BIOS/BIOSConfig.lua` and add (or uncomment) one of the fixed address UDPSender lines. It should read something like:
 
 ```
 addBIOS.protocol_io.connections = {
@@ -45,7 +47,7 @@ addBIOS.protocol_io.connections = {
 }
 ```
 
-... where `"192.168.XX.XX"` should be the IP of the machine holding the Web and Socket servers (the RPi, the virtual machine, the laptop, etc.) NOT the DCS running machine.
+The line with the `BIOS.protocol_io.UDPSender:create` is the important addition to the default LUA file, where `"192.168.XX.XX"` should be the IP of the machine holding the Web and Socket servers (the RPi, the virtual machine, the laptop, etc.) NOT the DCS running machine.
 
 ## Structure of the tools
 
@@ -56,39 +58,87 @@ The system is composed of two different components:
 
 The Socket Server is not required, clicking on the different buttons of the pages will send the correct messages to DCS-BIOS, but any feedback from DCS requires the socket server. Since it's relatively easy to configure, I suggest you use both.
 
----
+## Building the tools
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### Socket Server
 
-## Getting Started
+The first time, you need to install dependencies, and create the `dist` for the server.
 
-First, run the development server:
+From the project's root:
 
-```bash
-npm run dev
-# or
-yarn dev
+```
+$ cd socketServer/
+$ npx tsc
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Web Server (client)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+You also need to build the NextJS package for the client.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+From the project's root:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+$ cd client/
+$ yarn build
+```
 
-## Learn More
+## Running the tools
 
-To learn more about Next.js, take a look at the following resources:
+### Socket Server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+From the project's root:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+$ cd socketServer/
+$ node dist/index.js
+```
 
-## Deploy on Vercel
+If you want to configure the Socket Server to listen to connections on a different PORT than the default one (3001), you can:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+$ PORT=4321 node dist/index.js
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Confirm on the console logs that the PORT you configured worked as expected. For ease of use, the initial console lines also give you insight into your machines IP. It lists all the IPv4-capable devices, so judge by yourself which IP is the right one when configuring the client.
+
+_NOTE:_ Since DCS-BIOS has been configured to SEND UPD messages into the machine running the Socket, there is no additional configuration required. The Socket server will listen to its own IP on por 7777 for broadcasted messages from DCS. Ensure that your local firewalls are allowing the desired flows.
+
+### Web Client
+
+From the project's root:
+
+```
+$ cd client/
+$ DCS_IP=http://192.168.X.X yarn start
+```
+
+This starts a NextJS server on port 3000 (default). If you want to run on different ports, please consult the NextJS documentation.
+
+Please note that it is **required** that you pass the DCS_IP env variable. The DCS-running-machine IP is crucial so that the client can broadcast the UDP commands to DCS-BIOS UDPListener created on port 7778 on the BIOSConfig.lua file discussed earlier. The PORT is not configurable at this point.
+
+With that, you should be able to navigate from a Web browser to: `http://192.168.X.Y:3000` and start using DCS-WEB-BIOS. If you are using a RPi with it's own screen, you can simply: `http://localhost:3000` and that's it.
+
+If the socket server is running on a different port than the default 3001 one, you can:
+
+```
+$ DCS_IP=http://192.168.X.X SOCKET_PORT=4321 yarn start
+```
+
+If the socket server is running on a different machine than the Web server (not recommended and not fully tested), you can instead do:
+
+```
+$ DCS_IP=http://192.168.X.X SOCKET_URL=http://192.168.X.Y:4321 yarn start
+```
+
+## Using the Web Client
+
+Right now, there is a fixed set of steps you need to follow:
+
+- Be sure both services (Socket and Web Client) are running
+- Launch DCS
+- Enter a mission / multiplayer game with your desired module
+- Navigate in the DCS Web BIOS to the specific module
+- Click on the "cog" icon on the top right
+- Click "connect"
+
+This will instruct the socket server to start listening for that module's specific set of instructions.
