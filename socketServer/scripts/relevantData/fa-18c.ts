@@ -97,6 +97,14 @@ const relevantData: RelevantData[] = [
     max_length: 2,
     type: "string",
   },
+  {
+    identifier: "UFC_ADF",
+    address: 0x7416,
+    mask: 0x00c0,
+    max_value: 2,
+    shift_by: 6,
+    type: "integer",
+  },
 ];
 
 export { relevantData };
