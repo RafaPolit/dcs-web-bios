@@ -14,6 +14,20 @@ const Home: NextPage = () => {
 
       <main className="p-3">
         <div className="grid grid-cols-4 lg:grid-cols-6 gap-4">
+          <Link href="/f-14b">
+            <a className="text-center rounded-lg bg-gray-600 p-2">
+              <div>
+                <Image
+                  src="/modules/F14.jpg"
+                  alt="F-14 Tomcat"
+                  layout="responsive"
+                  width="700"
+                  height="1000"
+                />
+                <h3 className="font-bold">F-14 Tomcat</h3>
+              </div>
+            </a>
+          </Link>
           <Link href="/f-16c">
             <a className="text-center rounded-lg bg-gray-600 p-2">
               <div>
@@ -28,17 +42,17 @@ const Home: NextPage = () => {
               </div>
             </a>
           </Link>
-          <Link href="/f-14b">
+          <Link href="/fa-18c">
             <a className="text-center rounded-lg bg-gray-600 p-2">
               <div>
                 <Image
-                  src="/modules/F14.jpg"
-                  alt="F-14 Tomcat"
+                  src="/modules/DCS-F-18C_700x1000_v2.jpg"
+                  alt="F/A-18C Hornet"
                   layout="responsive"
                   width="700"
                   height="1000"
                 />
-                <h3 className="font-bold">F-14 Tomcat</h3>
+                <h3 className="font-bold">F/A-18C Hornet</h3>
               </div>
             </a>
           </Link>

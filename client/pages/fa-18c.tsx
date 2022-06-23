@@ -3,12 +3,11 @@ import type { NextPage } from "next";
 import Head from "next/head";
 
 import { Settings } from "../components/Settings";
-import { ICP } from "../components/f-16c/ICP";
-import { MFDs } from "../components/f-16c/MFDs";
-import { Tabs } from "../components/f-16c/Tabs";
+import { Tabs } from "../components/fa-18c/Tabs";
+import { UFC } from "../components/fa-18c/UFC";
 
 const F16CMain: NextPage = () => {
-  const [pane, setPane] = useState("icp");
+  const [pane, setPane] = useState("ufc");
 
   return (
     <div className="bg-gray-600 text-white min-h-screen">
@@ -20,9 +19,8 @@ const F16CMain: NextPage = () => {
 
       <main className="">
         <Tabs pane={pane} setPane={setPane} />
-        {pane === "settings" && <Settings module="f16c" />}
-        {pane === "icp" && <ICP />}
-        {pane === "mfds" && <MFDs />}
+        {pane === "settings" && <Settings module="fa18c" />}
+        {pane === "ufc" && <UFC />}
       </main>
     </div>
   );
