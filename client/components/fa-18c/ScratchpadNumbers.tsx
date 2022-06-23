@@ -17,8 +17,6 @@ const ScratchpadNumbers = ({ text, className }: ScratchpadNumbersProps) => {
   const char6 = paddedText.substring(6, 7);
   const char7 = paddedText.substring(7, 8);
 
-  console.log(char1, char2, char3, char4, char5, char6, char7);
-
   return (
     <div className={`${className} absolute w-[108px] h-[22px]`}>
       <UFCChar className="left-[0px]" char={char1} half />
