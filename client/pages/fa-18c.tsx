@@ -5,6 +5,7 @@ import Head from "next/head";
 import { Settings } from "../components/Settings";
 import { Tabs } from "../components/fa-18c/Tabs";
 import { UFC } from "../components/fa-18c/UFC";
+import { DDIs } from "../components/fa-18c/DDIs";
 
 const F16CMain: NextPage = () => {
   const [pane, setPane] = useState("ufc");
@@ -12,8 +13,8 @@ const F16CMain: NextPage = () => {
   return (
     <div className="bg-gray-600 text-white min-h-screen">
       <Head>
-        <title>F-16C Viper</title>
-        <meta name="description" content="F-16C Viper" />
+        <title>F/A-18C Hornet</title>
+        <meta name="description" content="F/A-18C Hornet" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -21,6 +22,7 @@ const F16CMain: NextPage = () => {
         <Tabs pane={pane} setPane={setPane} />
         {pane === "settings" && <Settings module="fa18c" />}
         {pane === "ufc" && <UFC />}
+        {pane === "ddis" && <DDIs />}
       </main>
     </div>
   );

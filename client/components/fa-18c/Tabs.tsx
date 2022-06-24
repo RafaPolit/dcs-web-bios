@@ -16,6 +16,14 @@ const ModuleTabs = ({ pane, setPane }: TabsProps) => {
           UFC
         </button>
       </li>
+      <li>
+        <button
+          className={pane === "ddis" ? tabClassCurrent : tabClass}
+          onClick={() => setPane("ddis")}
+        >
+          DDIs
+        </button>
+      </li>
     </Tabs>
   );
 };

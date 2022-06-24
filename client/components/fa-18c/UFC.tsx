@@ -4,7 +4,7 @@ import { udp } from "../../scripts/udp";
 import { OptionDisplays } from "./OptionDisplays";
 import { CommDisplays } from "./CommDisplays";
 import { ScratchpadDisplays } from "./ScratchpadDisplays";
-import { ADFmages } from "./ADFImages";
+import { ADFImages } from "./ADFImages";
 
 const roundedButton = "absolute w-[33px] h-[33px] rounded-full";
 const squareButton = "absolute w-[42px] h-[42px]";
@@ -22,7 +22,7 @@ const UFC = () => {
           className="rounded-lg"
           priority={true}
         />
-        <ADFmages />
+        <ADFImages />
         <OptionDisplays />
         <CommDisplays />
         <ScratchpadDisplays />

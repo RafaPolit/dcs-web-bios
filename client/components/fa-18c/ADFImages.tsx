@@ -3,7 +3,7 @@ import { useRecoilValue } from "recoil";
 import { dcsDataState } from "../../atoms/dcsData";
 import { ADF_SW } from "./ADF_SW";
 
-const ADFmages = () => {
+const ADFImages = () => {
   const dcsData = useRecoilValue(dcsDataState);
 
   const ADFMode = parseInt(dcsData["UFC_ADF"] || "1");
@@ -15,4 +15,4 @@ const ADFmages = () => {
   );
 };
 
-export { ADFmages };
+export { ADFImages };

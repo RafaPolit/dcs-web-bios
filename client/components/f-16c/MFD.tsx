@@ -1,14 +1,14 @@
 import Image from "next/image";
 import { udp } from "../../scripts/udp";
 
-type MDFProps = {
+type MFDProps = {
   side: string;
 };
 
 const mfdButton = "absolute w-[34px] h-[34px] lg:w-[36px] lg:h-[36px]";
 const mfdSwitch = "absolute w-[48px] h-[34px] lg:w-[52px] lg:h-[36px]";
 
-const MFD = ({ side }: MDFProps) => {
+const MFD = ({ side }: MFDProps) => {
   return (
     <div className="relative w-[390px] h-[383px] lg:w-[428px] lg:h-[420px] min-w-[386px]">
       <Image
