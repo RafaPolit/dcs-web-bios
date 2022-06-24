@@ -120,20 +120,20 @@ const DDI = ({ side }: DDIProps) => {
       {/* -------------------------------- */}
       <button
         className={`${knob} left-[7px] bottom-[4px]`}
-        onClick={() => udp("Send", `${side}_DDI_BRT_CTL -6400`)}
+        onClick={() => udp("Send", `${side}_DDI_BRT_CTL -3200`)}
       />
       <button
         className={`${knob} left-[37px] bottom-[4px]`}
-        onClick={() => udp("Send", `${side}_DDI_BRT_CTL +6400`)}
+        onClick={() => udp("Send", `${side}_DDI_BRT_CTL +3200`)}
       />
       {/* -------------------------------- */}
       <button
         className={`${knob} right-[7px] bottom-[4px]`}
-        onClick={() => udp("Send", `${side}_DDI_CONT_CTL -6400`)}
+        onClick={() => udp("Send", `${side}_DDI_CONT_CTL +3200`)}
       />
       <button
         className={`${knob} right-[37px] bottom-[4px]`}
-        onClick={() => udp("Send", `${side}_DDI_CONT_CTL +6400`)}
+        onClick={() => udp("Send", `${side}_DDI_CONT_CTL -3200`)}
       />
     </div>
   );
