@@ -28,8 +28,9 @@ const udp = async (
   val?: string,
   orig?: string
 ) => {
+  const encodedMsg = encodeURI(msg).replace(/\+/g, "%2b");
   const apiCall = await fetch(
-    `/api/udp${method}?msg=${encodeURI(msg)}&val=${val}&orig=${orig}`
+    `/api/udp${method}?msg=${encodedMsg}&val=${val}&orig=${orig}`
   );
   await apiCall.json();
 };
