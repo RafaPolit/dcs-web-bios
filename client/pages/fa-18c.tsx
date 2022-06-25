@@ -7,7 +7,7 @@ import { Tabs } from "../components/fa-18c/Tabs";
 import { UFC } from "../components/fa-18c/UFC";
 import { DDIs } from "../components/fa-18c/DDIs";
 
-const F16CMain: NextPage = () => {
+const FA18CMain: NextPage = () => {
   const [pane, setPane] = useState("ufc");
 
   return (
@@ -28,4 +28,4 @@ const F16CMain: NextPage = () => {
   );
 };
 
-export default F16CMain;
+export default FA18CMain;

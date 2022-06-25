@@ -7,6 +7,20 @@
   src: url("/fonts/falconded.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Ledboard";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/led-board-7.regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Apache";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/led_board-7-ah64d.woff") format("woff");
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
