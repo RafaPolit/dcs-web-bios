@@ -1,14 +1,15 @@
 import React from "react";
 import Image from "next/image";
-import { udp } from "../../scripts/udp";
 import { KUDisplay } from "./KUDisplay";
-
-const roundedButton = "absolute top-[19px] w-[56px] h-[56px] rounded-full";
-const squareButton = "absolute w-[56px] h-[56px]";
-const directionalButton = "absolute w-[40px] h-[43px]";
+import { generateButtons } from "./kuButtons";
 
 type KeyboardProps = {
   position: "PLT" | "CPG";
+};
+
+const buttons = {
+  PLT: generateButtons("PLT"),
+  CPG: generateButtons("CPG"),
 };
 
 const Keyboard = ({ position }: KeyboardProps) => {
@@ -23,10 +24,15 @@ const Keyboard = ({ position }: KeyboardProps) => {
           priority={true}
         />
         <KUDisplay position={position} />
-        <button
-          className={`${roundedButton} left-[55px]`}
-          onClick={() => udp("Toggle", "Keyboard_COM1_BTN")}
-        />
+        <div className="absolute left-[38px] top-[97px]">
+          {buttons[position].letters.map((b) => b)}
+        </div>
+        <div className="absolute left-[343px] top-[97px]">
+          {buttons[position].numbers.map((b) => b)}
+        </div>
+        <div className="absolute left-[140px] top-[302px]">
+          {buttons[position].symbols.map((b) => b)}
+        </div>
       </div>
     </div>
   );
