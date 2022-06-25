@@ -3,12 +3,11 @@ import type { NextPage } from "next";
 import Head from "next/head";
 
 import { Settings } from "../components/Settings";
-import { Tabs } from "../components/fa-18c/Tabs";
-import { UFC } from "../components/fa-18c/UFC";
-import { DDIs } from "../components/fa-18c/DDIs";
+import { Tabs } from "../components/ah-64d/Tabs";
+import { Keyboard } from "../components/ah-64d/Keyboard";
 
-const FA18CMain: NextPage = () => {
-  const [pane, setPane] = useState("ufc");
+const AH64DMain: NextPage = () => {
+  const [pane, setPane] = useState("plt-keyboard");
 
   return (
     <div className="bg-gray-600 text-white min-h-screen">
@@ -20,12 +19,12 @@ const FA18CMain: NextPage = () => {
 
       <main className="">
         <Tabs pane={pane} setPane={setPane} />
-        {pane === "settings" && <Settings module="fa18c" />}
-        {pane === "ufc" && <UFC />}
-        {pane === "ddis" && <DDIs />}
+        {pane === "settings" && <Settings module="ah64d" />}
+        {pane === "plt-keyboard" && <Keyboard position="PLT" />}
+        {pane === "cpg-keyboard" && <Keyboard position="CPG" />}
       </main>
     </div>
   );
 };
 
-export default FA18CMain;
+export default AH64DMain;

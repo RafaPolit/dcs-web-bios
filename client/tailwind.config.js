@@ -9,6 +9,7 @@ module.exports = {
       fontFamily: {
         inconsolata: ["Inconsolata", "monospace"],
         falconded: ["Falconded", "monospace"],
+        ledboard: ["Ledboard", "monospace"],
       },
     },
   },
