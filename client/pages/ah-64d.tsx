@@ -12,8 +12,8 @@ const AH64DMain: NextPage = () => {
   return (
     <div className="bg-gray-600 text-white min-h-screen">
       <Head>
-        <title>F/A-18C Hornet</title>
-        <meta name="description" content="F/A-18C Hornet" />
+        <title>AH-64D Apache</title>
+        <meta name="description" content="AH-64D Apache" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

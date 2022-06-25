@@ -19,6 +19,22 @@ const relevantData: RelevantData[] = [
     max_length: 22,
     type: "string",
   },
+  {
+    identifier: "PLT_KU_BRT",
+    address: 0x808a,
+    mask: 0xffff,
+    shift_by: 0,
+    max_value: 65535,
+    type: "integer",
+  },
+  {
+    identifier: "CPG_KU_BRT",
+    address: 0x80a8,
+    mask: 0xffff,
+    shift_by: 0,
+    max_value: 65535,
+    type: "integer",
+  },
 ];
 
 export { relevantData };
