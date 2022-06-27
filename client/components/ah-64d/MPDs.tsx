@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { MPD } from "./MPD";
+import { useRecoilState } from "recoil";
 import { BiArrowToRight, BiArrowToLeft } from "react-icons/bi";
+import { ah64dState } from "../../atoms/ah-64d";
+import { MPD } from "./MPD";
 
 type MPDsProps = {
   position: "PLT" | "CPG";
@@ -10,7 +12,16 @@ const mpdSelect =
   "lg:hidden m-12 px-3 py-2 flex items-center rounded bg-gray-700";
 
 const MPDs = ({ position }: MPDsProps) => {
-  const [current, setCurrent] = useState("LEFT");
+  const [ah64dStatus, setAh64dStatus] = useRecoilState(ah64dState);
+
+  const current = ah64dStatus[`${position}_MPD`];
+
+  const setCurrent = (side: "LEFT" | "RIGHT") => {
+    setAh64dStatus((oldValues) => ({
+      ...oldValues,
+      [`${position}_MPD`]: side,
+    }));
+  };
 
   return (
     <div className="flex gap-x-1 lg:gap-x-12 place-content-center items-center">

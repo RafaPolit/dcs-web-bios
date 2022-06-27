@@ -18,18 +18,18 @@ const ModuleTabs = ({ pane, setPane }: TabsProps) => {
       </li>
       <li>
         <button
-          className={pane === "cpg-keyboard" ? tabClassCurrent : tabClass}
-          onClick={() => setPane("cpg-keyboard")}
-        >
-          CPG Keyb.
-        </button>
-      </li>
-      <li>
-        <button
           className={pane === "plt-mpds" ? tabClassCurrent : tabClass}
           onClick={() => setPane("plt-mpds")}
         >
           PLT MPDs
+        </button>
+      </li>
+      <li>
+        <button
+          className={pane === "cpg-keyboard" ? tabClassCurrent : tabClass}
+          onClick={() => setPane("cpg-keyboard")}
+        >
+          CPG Keyb.
         </button>
       </li>
       <li>
