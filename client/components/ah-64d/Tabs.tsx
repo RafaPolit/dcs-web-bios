@@ -24,6 +24,22 @@ const ModuleTabs = ({ pane, setPane }: TabsProps) => {
           CPG Keyb.
         </button>
       </li>
+      <li>
+        <button
+          className={pane === "plt-mpds" ? tabClassCurrent : tabClass}
+          onClick={() => setPane("plt-mpds")}
+        >
+          PLT MPDs
+        </button>
+      </li>
+      <li>
+        <button
+          className={pane === "cpg-mpds" ? tabClassCurrent : tabClass}
+          onClick={() => setPane("cpg-mpds")}
+        >
+          CPG MPDs
+        </button>
+      </li>
     </Tabs>
   );
 };
