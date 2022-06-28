@@ -3,11 +3,25 @@ import getConfig from "next/config";
 
 const { publicRuntimeConfig } = getConfig();
 
-const sendMsg = (client: dgram.Socket, msg: string, val?: string) => {
+const sendMsg = (
+  client: dgram.Socket,
+  msg: string,
+  val?: string,
+  port?: number
+) => {
   const result = new Promise<number>((resolve, reject) => {
+    const sendPort = port || 7778;
+
+    console.log(
+      "Sending:",
+      `${msg}${val !== undefined ? " " + val : ""}\n`,
+      sendPort,
+      publicRuntimeConfig.dcsIP
+    );
+
     client.send(
       `${msg}${val !== undefined ? " " + val : ""}\n`,
-      7778,
+      sendPort,
       publicRuntimeConfig.dcsIP,
       (err, bytes) => {
         if (err) {

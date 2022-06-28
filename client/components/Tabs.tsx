@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { GiAirplane, GiCog } from "react-icons/gi";
+import { FaFighterJet } from "react-icons/fa";
+import { GiCog } from "react-icons/gi";
 
 type TabsProps = {
   pane: string;
@@ -20,7 +21,7 @@ const Tabs = ({ pane, setPane, children }: TabsProps) => {
         <li>
           <Link href="/">
             <a className={homeClass}>
-              <GiAirplane />
+              <FaFighterJet />
             </a>
           </Link>
         </li>

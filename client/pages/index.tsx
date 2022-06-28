@@ -70,6 +70,20 @@ const Home: NextPage = () => {
               </div>
             </a>
           </Link>
+          <Link href="/fc3">
+            <a className="text-center rounded-lg bg-gray-600 p-2">
+              <div>
+                <Image
+                  src="/modules/DCS_FC3_cover-2014_eng.jpg"
+                  alt="Flaming Cliffs 3"
+                  layout="responsive"
+                  width="350"
+                  height="490"
+                />
+                <h3 className="font-bold">AH-64D Apache</h3>
+              </div>
+            </a>
+          </Link>
         </div>
       </main>
     </div>
