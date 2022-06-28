@@ -14,6 +14,20 @@ const FC3: NextPage = () => {
 
       <main className="p-3">
         <div className="grid grid-cols-4 lg:grid-cols-6 gap-4">
+          <Link href="/f-15c">
+            <a className="text-center rounded-lg bg-gray-600 p-2">
+              <div>
+                <Image
+                  src="/modules/F-15C-DVD-cover-eng_700x1000px.jpg"
+                  alt="F-15C Eagle"
+                  layout="responsive"
+                  width="700"
+                  height="1000"
+                />
+                <h3 className="font-bold">F-15C Eagle</h3>
+              </div>
+            </a>
+          </Link>
           <Link href="/su-25">
             <a className="text-center rounded-lg bg-gray-600 p-2">
               <div>

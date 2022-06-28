@@ -12,13 +12,6 @@ const sendMsg = (
   const result = new Promise<number>((resolve, reject) => {
     const sendPort = port || 7778;
 
-    console.log(
-      "Sending:",
-      `${msg}${val !== undefined ? " " + val : ""}\n`,
-      sendPort,
-      publicRuntimeConfig.dcsIP
-    );
-
     client.send(
       `${msg}${val !== undefined ? " " + val : ""}\n`,
       sendPort,

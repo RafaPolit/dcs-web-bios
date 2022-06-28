@@ -7,7 +7,7 @@ type TabsProps = {
 
 const ModuleTabs = ({ pane, setPane }: TabsProps) => {
   return (
-    <Tabs pane={pane} setPane={setPane}>
+    <Tabs module="AH-64D Apache" setPane={setPane}>
       <li>
         <button
           className={pane === "plt-keyboard" ? tabClassCurrent : tabClass}

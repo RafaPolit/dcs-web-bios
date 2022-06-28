@@ -3,8 +3,8 @@ import { FaFighterJet } from "react-icons/fa";
 import { GiCog } from "react-icons/gi";
 
 type TabsProps = {
-  pane: string;
   setPane: (pane: string) => void;
+  module: string;
   children: JSX.Element | JSX.Element[];
 };
 
@@ -14,7 +14,7 @@ const tabClass =
 const tabClassCurrent =
   "inline-block font-semibold px-6 py-3 bg-gray-600 rounded-t-lg active";
 
-const Tabs = ({ pane, setPane, children }: TabsProps) => {
+const Tabs = ({ setPane, module, children }: TabsProps) => {
   return (
     <div>
       <ul className="flex flex-wrap text-md font-medium text-center text-neutral-200 pt-1 px-2 mb-1 bg-gray-800">
@@ -28,9 +28,10 @@ const Tabs = ({ pane, setPane, children }: TabsProps) => {
         {children}
       </ul>
       <button
-        className="absolute p-3 top-0 right-0 text-2xl"
+        className="absolute items-center flex p-3 top-0 right-0 text-2xl"
         onClick={() => setPane("settings")}
       >
+        <span className="text-xl mr-4">{module}</span>
         <GiCog />
       </button>
     </div>

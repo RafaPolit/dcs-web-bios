@@ -7,7 +7,7 @@ type TabsProps = {
 
 const ModuleTabs = ({ pane, setPane }: TabsProps) => {
   return (
-    <Tabs module="SU-25 Frogfoot" setPane={setPane}>
+    <Tabs module="F-15C Eagle" setPane={setPane}>
       <li>
         <button
           className={pane === "modes" ? tabClassCurrent : tabClass}
