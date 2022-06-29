@@ -80,7 +80,7 @@ const Home: NextPage = () => {
                   width="350"
                   height="490"
                 />
-                <h3 className="font-bold">AH-64D Apache</h3>
+                <h3 className="font-bold">Flaming Cliffs 3</h3>
               </div>
             </a>
           </Link>
