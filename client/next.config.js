@@ -6,6 +6,11 @@ const nextConfig = {
     socketURL: process.env.SOCKET_URL || "",
     socketPORT: process.env.SOCKET_PORT || "3001",
   },
+  experimental: {
+    images: {
+      unoptimized: true,
+    },
+  },
 };
 
 module.exports = nextConfig;
