@@ -14,8 +14,6 @@ const F16CMain: NextPage = () => {
     <div className="bg-gray-600 text-white min-h-screen">
       <Head>
         <title>F-16C Viper</title>
-        <meta name="description" content="F-16C Viper" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="">

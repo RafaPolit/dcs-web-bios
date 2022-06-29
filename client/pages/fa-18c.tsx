@@ -14,8 +14,6 @@ const FA18CMain: NextPage = () => {
     <div className="bg-gray-600 text-white min-h-screen">
       <Head>
         <title>F/A-18C Hornet</title>
-        <meta name="description" content="F/A-18C Hornet" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="">

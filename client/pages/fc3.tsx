@@ -8,8 +8,6 @@ const FC3: NextPage = () => {
     <div className="bg-gray-800 text-white min-h-screen">
       <Head>
         <title>FC3</title>
-        <meta name="description" content="FC3" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="p-3">

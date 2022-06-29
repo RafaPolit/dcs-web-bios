@@ -13,8 +13,6 @@ const F15CMain: NextPage = () => {
     <div className="bg-gray-600 text-white min-h-screen">
       <Head>
         <title>F-15C Eagle</title>
-        <meta name="description" content="F-15C Eagle" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="">

@@ -9,7 +9,7 @@ const Home: NextPage = () => {
       <Head>
         <title>DCS Web Bios</title>
         <meta name="description" content="DCS Web bios" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
 
       <main className="p-3">

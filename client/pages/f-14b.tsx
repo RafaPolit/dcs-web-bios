@@ -13,8 +13,6 @@ const F14BMain: NextPage = () => {
     <div className="bg-gray-600 text-white min-h-screen">
       <Head>
         <title>F-14B Tomcat</title>
-        <meta name="description" content="F-14B Tomcat" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="">

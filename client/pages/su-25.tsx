@@ -13,8 +13,6 @@ const SU25Main: NextPage = () => {
     <div className="bg-gray-600 text-white min-h-screen">
       <Head>
         <title>SU-25 Frogfoot</title>
-        <meta name="description" content="SU-25 Frogfoot" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="">
