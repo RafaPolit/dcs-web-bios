@@ -24,7 +24,10 @@ const DED = () => {
   });
 
   return (
-    <div className="font-falconded leading-none bg-black p-2 border-4 border-zinc-700 text-lime-400">
+    <div
+      className="font-falconded leading-none rounded-lg text-lime-400 w-[224px] h-[112px] px-[14px] pt-[32px] pb-[7px]"
+      style={{ backgroundImage: 'url("/f-16c/f-16c-ded.png")' }}
+    >
       {properties.map((property) => (
         <DEDLine
           key={property.property}

@@ -17,7 +17,6 @@ const FC3: NextPage = () => {
             width="700"
             height="1000"
           />
-          <h3 className="font-bold">F-15C Eagle</h3>
         </Link>
         <Link href="/su-25" className={item}>
           <Image
@@ -27,7 +26,6 @@ const FC3: NextPage = () => {
             width="700"
             height="1000"
           />
-          <h3 className="font-bold">SU-25 Frogfoot</h3>
         </Link>
       </div>
     </Layout>

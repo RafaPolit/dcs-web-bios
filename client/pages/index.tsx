@@ -17,7 +17,6 @@ const Home: NextPage = () => {
             height="1000"
             priority
           />
-          <h3 className="font-bold">F-14 Tomcat</h3>
         </Link>
         <Link href="/f-16c" className={item}>
           <Image
@@ -26,7 +25,6 @@ const Home: NextPage = () => {
             width="700"
             height="1000"
           />
-          <h3 className="font-bold">F-16C Viper</h3>
         </Link>
         <Link href="/fa-18c" className={item}>
           <Image
@@ -35,7 +33,6 @@ const Home: NextPage = () => {
             width="700"
             height="1000"
           />
-          <h3 className="font-bold">F/A-18C Hornet</h3>
         </Link>
         <Link href="/ah-64d" className={item}>
           <Image
@@ -44,7 +41,6 @@ const Home: NextPage = () => {
             width="350"
             height="500"
           />
-          <h3 className="font-bold">AH-64D Apache</h3>
         </Link>
         <Link href="/fc3" className={item}>
           <Image
@@ -53,7 +49,6 @@ const Home: NextPage = () => {
             width="350"
             height="490"
           />
-          <h3 className="font-bold">Flaming Cliffs 3</h3>
         </Link>
       </div>
     </Layout>
