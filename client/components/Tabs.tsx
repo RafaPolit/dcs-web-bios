@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FaFighterJet } from "react-icons/fa";
 import { GiCog } from "react-icons/gi";
+import { bgClass } from "./PageLayout";
 
 type TabsProps = {
   setPane: (pane: string) => void;
@@ -10,14 +11,13 @@ type TabsProps = {
 
 const homeClass = "inline-block text-4xl mx-2 px-4 pt-1";
 const tabClass =
-  "inline-block font-semibold px-6 py-3 rounded-t-lg hover:text-neutral-600 hover:bg-gray-50";
-const tabClassCurrent =
-  "inline-block font-semibold px-6 py-3 bg-gray-600 rounded-t-lg active";
+  "inline-block font-semibold px-6 py-3 rounded-t-lg hover:bg-gray-600";
+const tabClassCurrent = `${bgClass} inline-block font-semibold px-6 py-3 rounded-t-lg active`;
 
 const Tabs = ({ setPane, module, children }: TabsProps) => {
   return (
     <div>
-      <ul className="flex flex-wrap text-md font-medium text-center text-neutral-200 pt-1 px-2 mb-1 bg-gray-800">
+      <ul className="flex flex-wrap text-md font-medium text-center text-neutral-200 pt-1 px-2 mb-1 bg-black">
         <li>
           <Link href="/">
             <a className={homeClass}>

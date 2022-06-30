@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { NextPage } from "next";
-import Head from "next/head";
 
+import { Layout } from "../components/PageLayout";
 import { Settings } from "../components/Settings";
 import { Tabs } from "../components/f-14b/Tabs";
 import { DisplaysAndAP } from "../components/f-14b/DisplaysAndAP";
@@ -10,17 +10,11 @@ const F14BMain: NextPage = () => {
   const [pane, setPane] = useState("displays");
 
   return (
-    <div className="bg-gray-600 text-white min-h-screen">
-      <Head>
-        <title>F-14B Tomcat</title>
-      </Head>
-
-      <main className="">
-        <Tabs pane={pane} setPane={setPane} />
-        {pane === "settings" && <Settings module="f14b" />}
-        {pane === "displays" && <DisplaysAndAP />}
-      </main>
-    </div>
+    <Layout title="F-14B Tomcat">
+      <Tabs pane={pane} setPane={setPane} />
+      {pane === "settings" && <Settings module="f14b" />}
+      {pane === "displays" && <DisplaysAndAP />}
+    </Layout>
   );
 };
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { NextPage } from "next";
-import Head from "next/head";
 
+import { Layout } from "../components/PageLayout";
 import { Settings } from "../components/Settings";
 import { Tabs } from "../components/f-15c/Tabs";
 import { Modes } from "../components/f-15c/Modes";
@@ -10,17 +10,11 @@ const F15CMain: NextPage = () => {
   const [pane, setPane] = useState("modes");
 
   return (
-    <div className="bg-gray-600 text-white min-h-screen">
-      <Head>
-        <title>F-15C Eagle</title>
-      </Head>
-
-      <main className="">
-        <Tabs pane={pane} setPane={setPane} />
-        {pane === "settings" && <Settings module="f15c" />}
-        {pane === "modes" && <Modes />}
-      </main>
-    </div>
+    <Layout title="F-15C Eagle">
+      <Tabs pane={pane} setPane={setPane} />
+      {pane === "settings" && <Settings module="f15c" />}
+      {pane === "modes" && <Modes />}
+    </Layout>
   );
 };
 

@@ -5,22 +5,27 @@ import { sendMsg } from "../../scripts/udp";
 import { timeout } from "../../scripts/timeout";
 
 type Data = {
+  sent: string;
   bytes: number;
 };
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
-  const msg = req.query.msg.toString();
-  const val = req.query.val.toString();
-  const orig = req.query.orig.toString();
+  if (req.query.msg) {
+    const msg = req.query.msg.toString();
+    const val = req.query.val?.toString() || "";
+    const orig = req.query.orig?.toString() || "";
 
-  const client = dgram.createSocket("udp4");
+    const client = dgram.createSocket("udp4");
 
-  await sendMsg(client, msg, val);
-  await timeout(150);
-  const bytes = await sendMsg(client, msg, orig);
+    await sendMsg(client, msg, val);
+    await timeout(150);
+    const bytes = await sendMsg(client, msg, orig);
 
-  res.status(200).json({ bytes });
-  client.close();
+    res.status(200).json({ sent: "OK", bytes });
+    client.close();
+  } else {
+    res.status(200).json({ sent: "No msg", bytes: 0 });
+  }
 };
 
 export default handler;
