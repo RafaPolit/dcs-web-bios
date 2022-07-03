@@ -12,10 +12,14 @@ const Text = ({ children }: TextProps) => {
 type ButtonProps = {
   icon: JSX.Element;
   command: string;
+  keybind?: string;
   children: string;
 };
 
-const Button = ({ icon, command, children }: ButtonProps) => {
+const button =
+  "flex relative items-center bg-gray-700 rounded-lg outline outline-1 outline-offset-8 outline-gray-400 px-6 py-3";
+
+const Button = ({ icon, command, keybind, children }: ButtonProps) => {
   const Icon = React.cloneElement(icon, { className: "text-4xl" });
   return (
     <button
@@ -24,6 +28,7 @@ const Button = ({ icon, command, children }: ButtonProps) => {
     >
       {Icon}
       <Text>{children}</Text>
+      <span className="absolute top-0 right-2 opacity-50">{keybind}</span>
     </button>
   );
 };
@@ -31,9 +36,6 @@ const Button = ({ icon, command, children }: ButtonProps) => {
 type ModeProps = {
   children: JSX.Element | JSX.Element[];
 };
-
-const button =
-  "flex items-center bg-gray-700 rounded-lg outline outline-1 outline-offset-8 outline-gray-400 px-6 py-3";
 
 const FC3Modes = ({ children }: ModeProps) => {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { GiBombingRun } from "react-icons/gi";
-import { GiJetFighter, GiMultipleTargets } from "react-icons/gi";
+import { GiJetFighter } from "react-icons/gi";
 import { Button, FC3Modes } from "../fc3/FC3Modes";
 
 const Modes = () => {
@@ -15,9 +15,6 @@ const Modes = () => {
       </Button>
       <Button icon={<GiBombingRun />} command="111" keybind="7">
         Air-to-Ground
-      </Button>
-      <Button icon={<GiMultipleTargets />} command="112" keybind="8">
-        Gunsight Reticle Swtich
       </Button>
     </FC3Modes>
   );

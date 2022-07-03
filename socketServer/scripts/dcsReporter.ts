@@ -8,7 +8,7 @@ import * as relevantDataCollection from "./relevantData";
 let internalEmitter: events;
 
 const dcsReporter = (module: relevantDataCollection.Module, io: Server) => {
-  const relevantData = relevantDataCollection[module];
+  const relevantData = relevantDataCollection[module] || [];
 
   if (internalEmitter) {
     console.log("Removing all listeners. We only want one client.");

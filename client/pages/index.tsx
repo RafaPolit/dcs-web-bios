@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/future/image";
 import { Layout } from "../components/PageLayout";
 
-const item = "text-center rounded-lg bg-gray-600 p-2";
+const item = "flex text-center rounded-lg bg-gray-600 p-2";
 
 const Home: NextPage = () => {
   return (
