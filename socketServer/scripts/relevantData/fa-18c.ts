@@ -121,6 +121,14 @@ const relevantData: RelevantData[] = [
     max_value: 2,
     type: "integer",
   },
+  {
+    identifier: "AMPCD_BRT_CTL",
+    address: 0x74e0,
+    mask: 0xffff,
+    shift_by: 0,
+    max_value: 65535,
+    type: "integer",
+  },
 ];
 
 export { relevantData };

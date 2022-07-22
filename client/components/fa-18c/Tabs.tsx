@@ -24,6 +24,14 @@ const ModuleTabs = ({ pane, setPane }: TabsProps) => {
           DDIs
         </button>
       </li>
+      <li>
+        <button
+          className={pane === "ampcd" ? tabClassCurrent : tabClass}
+          onClick={() => setPane("ampcd")}
+        >
+          AMPCD
+        </button>
+      </li>
     </Tabs>
   );
 };

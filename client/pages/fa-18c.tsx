@@ -6,6 +6,7 @@ import { Settings } from "../components/Settings";
 import { Tabs } from "../components/fa-18c/Tabs";
 import { UFC } from "../components/fa-18c/UFC";
 import { DDIs } from "../components/fa-18c/DDIs";
+import { AMPCD } from "../components/fa-18c/AMPCD";
 
 const FA18CMain: NextPage = () => {
   const [pane, setPane] = useState("ufc");
@@ -16,6 +17,7 @@ const FA18CMain: NextPage = () => {
       {pane === "settings" && <Settings module="fa18c" />}
       {pane === "ufc" && <UFC />}
       {pane === "ddis" && <DDIs />}
+      {pane === "ampcd" && <AMPCD />}
     </Layout>
   );
 };
