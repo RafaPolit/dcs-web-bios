@@ -18,12 +18,23 @@ For those in a similar situation: people wanting a touch screen to do some commo
 - At the moment, the available interfaces are limited to those modules I own and have need for extra inputs that my HOTAS may not provide (mostly MFDs)
 - As hinted above, you need to have fixed and known IP addresses for the machines involved in the process
 
-## Initial Modules / Screens
+## Current Modules / Screens
 
-This list will grow! But, for the time being, you have access to limited modules and screens. Currently:
+This list will grow! But, for the time being, you have access to some modules and screens. Currently:
 
-- F-16C Viper with access to ICP (with DED feedback) and MFDs
 - F-14 (A and B) Tomcat with access to Displays panel and Auto Pilot
+- F-16C Viper with access to ICP (with DED feedback) and MFDs
+- F/A-18C Hornet with UFC (with displays feedback), DDIs and AMPCD
+- AH-64D Apache with Keyboard and MPDs for both Pilot and CPG
+
+Also, "Modes" for the following FC3 planes:
+
+- A-10A Warthog
+- Su-25 Frogfoot
+- F-15 Eagle
+- MiG-29 Fulcrum
+
+(other modes modules from FC3 are very quickly to implement, request them if you have a favorite FC3 module)
 
 ## What this project is NOT
 
