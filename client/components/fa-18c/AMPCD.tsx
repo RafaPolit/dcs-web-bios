@@ -118,11 +118,11 @@ const AMPCD = () => {
         >
           <button
             className={`${arrowSwitch} left-0 top-0`}
-            onClick={() => udp("SendAndReturn", `AMPCD_NIGHT_DAY`, "0", "1")}
+            onClick={() => udp("SendAndReturn", `AMPCD_NIGHT_DAY`, "2", "1")}
           />
           <button
             className={`${arrowSwitch} left-0 top-[26px]`}
-            onClick={() => udp("SendAndReturn", `AMPCD_NIGHT_DAY`, "2", "1")}
+            onClick={() => udp("SendAndReturn", `AMPCD_NIGHT_DAY`, "0", "1")}
           />
         </div>
         {/* -------------------------------- */}
@@ -132,11 +132,11 @@ const AMPCD = () => {
         >
           <button
             className={`${arrowSwitch} left-0 top-0`}
-            onClick={() => udp("SendAndReturn", `AMPCD_SYM_SW`, "0", "1")}
+            onClick={() => udp("SendAndReturn", `AMPCD_SYM_SW`, "2", "1")}
           />
           <button
             className={`${arrowSwitch} left-0 top-[26px]`}
-            onClick={() => udp("SendAndReturn", `AMPCD_SYM_SW`, "2", "1")}
+            onClick={() => udp("SendAndReturn", `AMPCD_SYM_SW`, "0", "1")}
           />
         </div>
         {/* -------------------------------- */}
