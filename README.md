@@ -34,6 +34,8 @@ Also, "Modes" for the following FC3 planes:
 - F-15 Eagle
 - MiG-29 Fulcrum
 
+_NOTE_: This requires [DCS-UPD-SET](https://github.com/RafaPolit/dcs-udp-set) to also be installed in your DCS machine.
+
 (other modes modules from FC3 are very quickly to implement, request them if you have a favorite FC3 module)
 
 ## What this project is NOT
