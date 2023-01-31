@@ -10,7 +10,8 @@
     "baseUrl": ".",
     "paths": {
       "*": ["node_modules/", "scripts/*"]
-    }
+    },
+    "resolveJsonModule": true
   },
   "include": ["scripts/**/*"]
 }
