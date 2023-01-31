@@ -50,6 +50,4 @@ const relevantData: RelevantData[] = [
   },
 ];
 
-console.log(relevantData);
-
 export { relevantData };
