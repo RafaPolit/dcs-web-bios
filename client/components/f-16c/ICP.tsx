@@ -7,6 +7,8 @@ import { NightVision } from "./NightVision";
 const roundedButton = "absolute top-[19px] w-[56px] h-[56px] rounded-full";
 const squareButton = "absolute w-[56px] h-[56px]";
 const directionalButton = "absolute w-[40px] h-[43px]";
+const threeWaySwitch = "absolute w-[50px] h-[43px]";
+const rockerSwitch = "absolute w-[40px] h-[60px]";
 
 const ICP = () => {
   return (
@@ -119,6 +121,29 @@ const ICP = () => {
           className={`${directionalButton} top-[327px] left-[243px]`}
           onClick={() => udp("SendAndReturn", "ICP_DATA_RTN_SEQ_SW", "2", "1")}
         />
+        {/* ------------------------------------------ */}
+        <button
+          className={`${threeWaySwitch} top-[305px] left-[295px] rounded-lg`}
+          onClick={() => udp("Send", `ICP_DRIFT_SW 2`)}
+        />
+        <button
+          className={`${threeWaySwitch} top-[325px] left-[350px] rounded-lg`}
+          onClick={() => udp("Send", `ICP_DRIFT_SW 1`)}
+        />
+        <button
+          className={`${threeWaySwitch} top-[355px] left-[295px] rounded-lg`}
+          onClick={() => udp("SendAndReturn", "ICP_DRIFT_SW", "0", "1")}
+        />
+        {/* ------------------------------------------ */}
+        <button
+          className={`${rockerSwitch} top-[53px] left-[6px] bg-orange-800 opacity-25`}
+          onClick={() => udp("Send", `ICP_HUD_BRT_KNB +3200`)}
+        />
+        <button
+          className={`${rockerSwitch} top-[123px] left-[6px] bg-orange-800 opacity-25`}
+          onClick={() => udp("Send", `ICP_HUD_BRT_KNB -3200`)}
+        />
+        {/* ------------------------------------------ */}
         <button
           className={`${directionalButton} top-[178px] left-[433px]`}
           onClick={() => udp("Set", `LoSetCommand 840`)}
@@ -127,6 +152,7 @@ const ICP = () => {
           className={`${directionalButton} top-[222px] left-[433px]`}
           onClick={() => udp("Set", `LoSetCommand 841`)}
         />
+        {/* ------------------------------------------ */}
       </div>
       <div className="flex flex-col gap-y-12 w-[224px]">
         <DED />
