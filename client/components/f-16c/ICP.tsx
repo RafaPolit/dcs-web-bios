@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { udp } from "../../scripts/udp";
 import { DED } from "./DED";
+import { NightVision } from "./NightVision";
 
 const roundedButton = "absolute top-[19px] w-[56px] h-[56px] rounded-full";
 const squareButton = "absolute w-[56px] h-[56px]";
@@ -118,8 +119,19 @@ const ICP = () => {
           className={`${directionalButton} top-[327px] left-[243px]`}
           onClick={() => udp("SendAndReturn", "ICP_DATA_RTN_SEQ_SW", "2", "1")}
         />
+        <button
+          className={`${directionalButton} top-[178px] left-[433px]`}
+          onClick={() => udp("Set", `LoSetCommand 840`)}
+        />
+        <button
+          className={`${directionalButton} top-[222px] left-[433px]`}
+          onClick={() => udp("Set", `LoSetCommand 841`)}
+        />
       </div>
-      <DED />
+      <div className="flex flex-col gap-y-12 w-[224px]">
+        <DED />
+        <NightVision />
+      </div>
     </div>
   );
 };

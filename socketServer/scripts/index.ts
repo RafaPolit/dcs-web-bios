@@ -34,5 +34,5 @@ console.log(
   `dcs-web-client should be configured with http://[${getOwnIP()}]:${PORT}/`
 );
 console.log(
-  `dcs-bios should be configured to broadcast UPD to [${getOwnIP()}] on PORT:${PORT}/`
+  `dcs-bios should be configured to broadcast UPD to [${getOwnIP()}] on PORT:7777`
 );
