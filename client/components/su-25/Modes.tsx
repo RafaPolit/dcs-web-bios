@@ -2,7 +2,8 @@ import React from "react";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { GiBombingRun } from "react-icons/gi";
 import { GiJetFighter, GiMultipleTargets } from "react-icons/gi";
-import { Button, FC3Modes } from "../fc3/FC3Modes";
+import { FC3Modes } from "../fc3/FC3Modes";
+import { Button } from "../UI/Button";
 
 const Modes = () => {
   return (
