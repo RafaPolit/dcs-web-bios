@@ -9,19 +9,19 @@ const relevantData: RelevantData[] = [
   },
   {
     identifier: "PLT_KU_DISPLAY",
-    address: 0x808c,
+    address: 0x808e,
     max_length: 22,
     type: "string",
   },
   {
     identifier: "CPG_KU_DISPLAY",
-    address: 0x80aa,
+    address: 0x80ac,
     max_length: 22,
     type: "string",
   },
   {
     identifier: "PLT_KU_BRT",
-    address: 0x808a,
+    address: 0x808c,
     mask: 0xffff,
     shift_by: 0,
     max_value: 65535,
@@ -29,7 +29,7 @@ const relevantData: RelevantData[] = [
   },
   {
     identifier: "CPG_KU_BRT",
-    address: 0x80a8,
+    address: 0x80aa,
     mask: 0xffff,
     shift_by: 0,
     max_value: 65535,
